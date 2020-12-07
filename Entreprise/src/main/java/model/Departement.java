@@ -1,12 +1,17 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Departement implements Serializable {
 
 	private int numero;
 	private String nom;
 	private String lieu;
+	
+	
+	private List<Employe> employes  = new ArrayList<>();
 
 	public Departement() {
 	}
@@ -40,9 +45,14 @@ public class Departement implements Serializable {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
-	@Override
-	public String toString() {
-		return "Departement [numero=" + numero + ", nom=" + nom + ", lieu=" + lieu + "]";
+	
+
+	public List<Employe> getEmployes() {
+		return employes;
+	}
+
+	public void setEmployes(List<Employe> employes) {
+		this.employes = employes;
 	}
 
 

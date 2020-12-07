@@ -2,17 +2,23 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Employe implements Serializable {
 
 	private int numero;
 	private String nom;
 	private String poste;
-	private Employe manager;
 	private LocalDate embauche;
 	private int salaire;
 	private Integer commission;
+	
+	
+	private Employe manager;
 	private Departement departement;
+	private List<Projet> missions = new ArrayList<>();
+	private Ordinateur ordinateur;
 
 
 	public Employe() {
@@ -111,11 +117,23 @@ public class Employe implements Serializable {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Employe [numero=" + numero + ", nom=" + nom + ", poste=" + poste + ", manager=" + manager
-				+ ", embauche=" + embauche + ", salaire=" + salaire + ", commission=" + commission + ", departement="
-				+ departement + "]";
+	public List<Projet> getMissions() {
+		return missions;
+	}
+
+
+	public void setMissions(List<Projet> missions) {
+		this.missions = missions;
+	}
+
+
+	public Ordinateur getOrdinateur() {
+		return ordinateur;
+	}
+
+
+	public void setOrdinateur(Ordinateur ordinateur) {
+		this.ordinateur = ordinateur;
 	}
 
 
