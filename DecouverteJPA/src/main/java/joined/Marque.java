@@ -1,4 +1,4 @@
-package model;
+package joined;
 
 public enum Marque {
 
