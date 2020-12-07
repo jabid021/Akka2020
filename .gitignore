@@ -3,3 +3,4 @@
 target/
 .settings/
 .DS_Store
+#DecouverteJPA/src/main/resources/META-INF/persistence.xml
