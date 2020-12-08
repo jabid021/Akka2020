@@ -36,5 +36,11 @@ public class App {
 		emf.close();
 		
 		
+		
+		// em.persist(); => Inssert
+		// em.find() => SelectById
+		// em.remove(); => delete
+		// em.merge() => Update
+		
 	}
 }

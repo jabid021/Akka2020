@@ -56,6 +56,16 @@ public class Sorcier {
 	}
 
 
+	public List<Match> getMatchs() {
+		return matchs;
+	}
+
+
+	public void setMatchs(List<Match> matchs) {
+		this.matchs = matchs;
+	}
+
+
 	public String getNom() {
 		return nom;
 	}
