@@ -4,18 +4,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import joined.Marque;
-import joined.Moto;
-import joined.Voiture;
-import singleTable.Chat;
-import singleTable.Chien;
+import model.Baguette;
+import model.Sorcier;
 
 public class App {
 
 	public static void main(String[] args) {
 		
 		
-		Moto m1 = new Moto();
+	/*	Moto m1 = new Moto();
 		m1.setMarque(Marque.Marque1);
 		m1.setVitesse(240);
 		m1.setEnPlus("en+");
@@ -35,6 +32,14 @@ public class App {
 		chat.setPoids(6);
 		chat.setRace2("Sphynx");
 		
+		*/
+		
+		Baguette b = new Baguette("Toto");
+		Baguette b2 = new Baguette("titi");
+		
+		Sorcier harry = new Sorcier("Potter","Harry",b);
+		
+		
 		
 		
 		
@@ -44,14 +49,10 @@ public class App {
 		
 		em.getTransaction().begin();
 		
-		em.persist(m1);
-		em.persist(v1);
 		
-		em.persist(chien);
-		em.persist(chat);
-	
-		
-		
+		em.persist(b);
+		em.persist(harry);
+		em.persist(b2);
 		
 		em.getTransaction().commit();
 		

@@ -3,7 +3,7 @@ package joined;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-@Entity
+//@Entity
 @PrimaryKeyJoinColumn(name="id_voiture",referencedColumnName="id")
 public class Voiture extends Vehicule{
 

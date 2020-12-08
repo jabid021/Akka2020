@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 
 
 
-@Entity
+//@Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Vehicule {
 
