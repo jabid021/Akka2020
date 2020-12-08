@@ -15,8 +15,8 @@ public class DAODepartementSerial implements IDAODepartement {
 	static File f = new File("departements.txt");
 	
 	@Override
-	public void ajouter(Departement d) {
-		List<Departement> sauvegarde=selectAll();
+	public void insert(Departement d) {
+		List<Departement> sauvegarde=findAll();
 		try (
 				FileOutputStream fos = new FileOutputStream(f);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -33,8 +33,8 @@ public class DAODepartementSerial implements IDAODepartement {
 	}
 
 	@Override
-	public void modifier(Departement d) {
-		List<Departement> sauvegarde=selectAll();
+	public void update(Departement d) {
+		List<Departement> sauvegarde=findAll();
 		try (
 				FileOutputStream fos = new FileOutputStream(f);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -59,8 +59,8 @@ public class DAODepartementSerial implements IDAODepartement {
 	}
 
 	@Override
-	public void supprimer(Integer id) {
-		List<Departement> sauvegarde=selectAll();
+	public void delete(Integer id) {
+		List<Departement> sauvegarde=findAll();
 		try (
 				FileOutputStream fos = new FileOutputStream(f);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -84,10 +84,10 @@ public class DAODepartementSerial implements IDAODepartement {
 	}
 
 	@Override
-	public Departement selectById(Integer id) {
+	public Departement findById(Integer id) {
 		try 
 		{
-			List<Departement> sauvegarde = selectAll();
+			List<Departement> sauvegarde = findAll();
 			for(Departement d : sauvegarde) 
 			{
 				if(d.getNumero()==id) 
@@ -101,7 +101,7 @@ public class DAODepartementSerial implements IDAODepartement {
 	}
 
 	@Override
-	public List<Departement> selectAll() {
+	public List<Departement> findAll() {
 		List<Departement> sauvegarde=new ArrayList();
 
 		try (

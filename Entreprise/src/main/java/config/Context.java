@@ -1,5 +1,8 @@
 package config;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import dao.IDAODepartement;
 import dao.IDAOEmploye;
 import dao.jdbc.DAODepartementJDBC;
@@ -8,14 +11,7 @@ import dao.jdbc.DAOEmployeJDBC;
 public class Context {
 
 	private static Context _instance;
-	
-	/*
-	private DAODepartementSerial daoDepartementSerial= new DAODepartementSerial();
-	private DAODepartementJDBC daoDepartementJDBC= new DAODepartementJDBC();
-	
-	private DAOEmployeSerial daoEmployeSerial= new DAOEmployeSerial();
-	private DAOEmployeJDBC daoEmployeJDBC= new DAOEmployeJDBC();*/
-	
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("entreprise");
 	
 	//Factory
 	private IDAODepartement daoDepartement= new DAODepartementJDBC();
@@ -31,6 +27,14 @@ public class Context {
 			_instance=new Context();
 		}
 		return _instance;
+	}
+	public EntityManagerFactory getEmf() {
+		return emf;
+	}
+	
+	public void closeEmf() 
+	{
+		emf.close();
 	}
 
 	public IDAODepartement getDaoDepartement() {

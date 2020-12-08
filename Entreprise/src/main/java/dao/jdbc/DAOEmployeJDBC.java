@@ -13,8 +13,14 @@ import model.Employe;
 
 public class DAOEmployeJDBC implements IDAOEmploye{
 
+	String lien="jdbc:mysql://localhost:8889/";
+	String db="scott";
+	String login="root";
+	String password="root";
+	
+	
 	@Override
-	public void ajouter(Employe e) {
+	public void insert(Employe e) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -47,7 +53,7 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 	}
 
 	@Override
-	public void modifier(Employe e) {
+	public void update(Employe e) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -82,7 +88,7 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 	}
 
 	@Override
-	public void supprimer(Integer id) {
+	public void delete(Integer id) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -101,7 +107,7 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 	}
 
 	@Override
-	public Employe selectById(Integer id) {
+	public Employe findById(Integer id) {
 		Employe emp=null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -133,7 +139,7 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 	}
 
 	@Override
-	public List<Employe> selectAll() {
+	public List<Employe> findAll() {
 		List<Employe> employes  = new ArrayList();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -147,8 +153,8 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 			Employe emp=null;
 			while(rs.next()) 
 			{
-				Departement d = Context.getInstance().getDaoDepartement().selectById(rs.getInt("deptno"));
-				Employe manager = Context.getInstance().getDaoEmploye().selectById(rs.getInt("mgr"));
+				Departement d = Context.getInstance().getDaoDepartement().findById(rs.getInt("deptno"));
+				Employe manager = Context.getInstance().getDaoEmploye().findById(rs.getInt("mgr"));
 				emp=new Employe(rs.getInt("empno"),rs.getString("ename"),rs.getString("job"),rs.getString("hiredate"),rs.getInt("sal"),(Integer) rs.getObject("comm"),d);
 				emp.setManager(manager);
 				employes.add(emp);

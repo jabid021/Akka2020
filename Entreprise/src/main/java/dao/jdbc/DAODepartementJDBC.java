@@ -1,6 +1,9 @@
 package dao.jdbc;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +12,15 @@ import model.Departement;
 
 public class DAODepartementJDBC  implements IDAODepartement{
 	
+
+	String lien="jdbc:mysql://localhost:8889/";
+	String db="scott";
+	String login="root";
+	String password="root";
+	
+	
 		@Override
-		public void ajouter(Departement d) {
+		public void insert(Departement d) {
 	
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
@@ -33,7 +43,7 @@ public class DAODepartementJDBC  implements IDAODepartement{
 		}
 	
 		@Override
-		public void modifier(Departement d) {
+		public void update(Departement d) {
 			
 			try {	
 				Class.forName("com.mysql.jdbc.Driver");
@@ -56,7 +66,7 @@ public class DAODepartementJDBC  implements IDAODepartement{
 		}
 
 	@Override
-	public void supprimer(Integer id) {
+	public void delete(Integer id) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -75,7 +85,7 @@ public class DAODepartementJDBC  implements IDAODepartement{
 	}
 
 	@Override
-	public Departement selectById(Integer id) {
+	public Departement findById(Integer id) {
 		Departement d=null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -103,7 +113,7 @@ public class DAODepartementJDBC  implements IDAODepartement{
 	}
 
 	@Override
-	public List<Departement> selectAll() {
+	public List<Departement> findAll() {
 		List<Departement> departements  = new ArrayList();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

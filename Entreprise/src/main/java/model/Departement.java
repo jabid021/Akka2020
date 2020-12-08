@@ -4,20 +4,41 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Departement implements Serializable {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@SequenceGenerator(name="departement", initialValue = 50, allocationSize = 10)
+@Table(name="dept")
+public class Departement implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "departement")
+	@Column(name="deptno")
 	private int numero;
+	@Column(name="dname")
 	private String nom;
+	@Column(name="loc")
 	private String lieu;
 	
-	
+	@OneToMany(mappedBy = "departement")
 	private List<Employe> employes  = new ArrayList<>();
 
 	public Departement() {
 	}
 
-	public Departement(int numero, String nom, String lieu) {
-		this.numero = numero;
+	public Departement(String nom, String lieu) {
+		this.nom = nom;
+		this.lieu = lieu;
+	}
+	
+	public Departement(Integer id,String nom, String lieu) {
+		this.numero=id;
 		this.nom = nom;
 		this.lieu = lieu;
 	}

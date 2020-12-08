@@ -30,7 +30,7 @@ public class App {
 		return sc.nextLine();
 	}
 	public static void main(String[] args) {
-
+		
 		menu();
 	}
 
@@ -77,7 +77,7 @@ public class App {
 
 	private static void showEmps() {
 		System.out.println("\nListe des employes : \n");
-		for(Employe e : Context.getInstance().getDaoEmploye().selectAll()) 
+		for(Employe e : Context.getInstance().getDaoEmploye().findAll()) 
 		{
 			System.out.println(e);
 		}
@@ -86,7 +86,7 @@ public class App {
 	private static void deleteEmp() {
 		showEmps();
 		int choix=saisieInt("Choisir un employe");
-		Context.getInstance().getDaoEmploye().supprimer(choix);
+		Context.getInstance().getDaoEmploye().delete(choix);
 
 	}
 
@@ -94,7 +94,7 @@ public class App {
 
 		showEmps();
 		int choix=saisieInt("Choisir un employe");
-		Employe e = Context.getInstance().getDaoEmploye().selectById(choix);
+		Employe e = Context.getInstance().getDaoEmploye().findById(choix);
 		if(e==null) {System.out.println("Aucun employé avec ce numero");}
 		else 
 		{
@@ -106,7 +106,7 @@ public class App {
 
 			showDepts();
 			int id= saisieInt("Choisir un departement");
-			Departement d = Context.getInstance().getDaoDepartement().selectById(id);
+			Departement d = Context.getInstance().getDaoDepartement().findById(id);
 
 			e.setNom(nom);
 			e.setPoste(job);
@@ -115,7 +115,7 @@ public class App {
 			e.setCommission(comm);
 			e.setDepartement(d);
 
-			Context.getInstance().getDaoEmploye().modifier(e);
+			Context.getInstance().getDaoEmploye().update(e);
 		}
 
 	}
@@ -130,10 +130,10 @@ public class App {
 
 		showDepts();
 		int id= saisieInt("Choisir un departement");
-		Departement d = Context.getInstance().getDaoDepartement().selectById(id);
+		Departement d = Context.getInstance().getDaoDepartement().findById(id);
 
 		Employe e = new Employe(numero, nom, job, embauche, sal, comm, d);
-		Context.getInstance().getDaoEmploye().ajouter(e);
+		Context.getInstance().getDaoEmploye().insert(e);
 
 	}
 
@@ -167,7 +167,7 @@ public class App {
 
 	private static void showDepts() {
 		System.out.println("\nListe des départements : \n");
-		for(Departement d : Context.getInstance().getDaoDepartement().selectAll()) 
+		for(Departement d : Context.getInstance().getDaoDepartement().findAll()) 
 		{
 			System.out.println(d);
 		}
@@ -175,36 +175,36 @@ public class App {
 	}
 
 	private static void deleteDept() {
-		for(Departement d : Context.getInstance().getDaoDepartement().selectAll()) 
+		for(Departement d : Context.getInstance().getDaoDepartement().findAll()) 
 		{
 			System.out.println(d);
 		}
 		int choix = saisieInt("\nChoisir un département");
 
-		Context.getInstance().getDaoDepartement().supprimer(choix);
+		Context.getInstance().getDaoDepartement().delete(choix);
 
 	}
 
 	private static void updateDept() {
-		for(Departement d : Context.getInstance().getDaoDepartement().selectAll()) 
+		for(Departement d : Context.getInstance().getDaoDepartement().findAll()) 
 		{
 			System.out.println(d);
 		}
 		int choix = saisieInt("\nChoisir un département");
-		Departement choixDept=Context.getInstance().getDaoDepartement().selectById(choix);
+		Departement choixDept=Context.getInstance().getDaoDepartement().findById(choix);
 		if(choixDept==null) {System.out.println("Aucun departement avec ce numero");}
 		else 
 		{
 			choixDept.setLieu(saisieString("Saisir le lieu"));
 			choixDept.setNom(saisieString("Saisir le nom"));
 
-			Context.getInstance().getDaoDepartement().modifier(choixDept);
+			Context.getInstance().getDaoDepartement().update(choixDept);
 		}
 	}
 
 	private static void addDept() {
-		Departement d = new Departement(saisieInt("Saisir numero"),saisieString("Saisir nom"),saisieString("Saisir lieu"));
-		Context.getInstance().getDaoDepartement().ajouter(d);
+		Departement d = new Departement(saisieString("Saisir nom"),saisieString("Saisir lieu"));
+		Context.getInstance().getDaoDepartement().insert(d);
 
 	}
 

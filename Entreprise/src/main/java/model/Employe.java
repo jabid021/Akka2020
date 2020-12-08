@@ -5,19 +5,46 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+@Entity
+@SequenceGenerator(name="employe")
+@Table(name="emp")
 public class Employe implements Serializable {
 
+	@Id
+	@Column(name="empno")
 	private int numero;
+	@Column(name="ename")
 	private String nom;
+	@Column(name="job")
 	private String poste;
+	@Column(name="hiredate",columnDefinition = "DATE")
 	private LocalDate embauche;
+	@Column(name="sal")
 	private int salaire;
+	@Column(name="comm", nullable=true)
 	private Integer commission;
 	
-	
+	@ManyToOne
+	@JoinColumn(name="mgr")
 	private Employe manager;
+	@ManyToOne
+	@JoinColumn(name="deptno")
 	private Departement departement;
+	
+	@ManyToMany
 	private List<Projet> missions = new ArrayList<>();
+	
+	@OneToOne
+	@JoinColumn(name="id_ordi")
 	private Ordinateur ordinateur;
 
 

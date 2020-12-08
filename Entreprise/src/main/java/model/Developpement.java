@@ -2,6 +2,10 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+@Entity
+@DiscriminatorValue("developpement")
 public class Developpement extends Projet{
 	
 	private String technologie;

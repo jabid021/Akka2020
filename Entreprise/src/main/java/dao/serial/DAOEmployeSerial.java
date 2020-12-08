@@ -14,8 +14,8 @@ public class DAOEmployeSerial implements IDAOEmploye{
 	static File f = new File("employes.txt");
 	
 	@Override
-	public void ajouter(Employe e) {
-		List<Employe> sauvegarde=selectAll();
+	public void insert(Employe e) {
+		List<Employe> sauvegarde=findAll();
 		try (
 				FileOutputStream fos = new FileOutputStream(f);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -32,8 +32,8 @@ public class DAOEmployeSerial implements IDAOEmploye{
 	}
 
 	@Override
-	public void modifier(Employe e) {
-		List<Employe> sauvegarde=selectAll();
+	public void update(Employe e) {
+		List<Employe> sauvegarde=findAll();
 		try (
 				FileOutputStream fos = new FileOutputStream(f);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -58,8 +58,8 @@ public class DAOEmployeSerial implements IDAOEmploye{
 	}
 
 	@Override
-	public void supprimer(Integer id) {
-		List<Employe> sauvegarde=selectAll();
+	public void delete(Integer id) {
+		List<Employe> sauvegarde=findAll();
 		try (
 				FileOutputStream fos = new FileOutputStream(f);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -83,8 +83,8 @@ public class DAOEmployeSerial implements IDAOEmploye{
 	}
 
 	@Override
-	public Employe selectById(Integer id) {
-		List<Employe> sauvegarde = selectAll();
+	public Employe findById(Integer id) {
+		List<Employe> sauvegarde = findAll();
 		try 
 		{
 			
@@ -103,7 +103,7 @@ public class DAOEmployeSerial implements IDAOEmploye{
 
 	
 	@Override
-	public List<Employe> selectAll() {
+	public List<Employe> findAll() {
 		List<Employe> sauvegarde = null;
 		try (
 				FileInputStream fis = new FileInputStream(f);
