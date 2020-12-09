@@ -12,6 +12,8 @@ import model.Departement;
 
 public class DAODepartementJDBC  implements IDAODepartement{
 	
+		public void ajouter(Departement d) {
+		
 
 	String lien="jdbc:mysql://localhost:8889/";
 	String db="scott";
@@ -42,6 +44,8 @@ public class DAODepartementJDBC  implements IDAODepartement{
 			}
 		}
 	
+		public void modifier(Departement d) {
+		
 		@Override
 		public void update(Departement d) {
 			

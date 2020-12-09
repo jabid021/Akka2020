@@ -6,12 +6,16 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+
+
+
 @Entity
 @DiscriminatorValue("audit")
-public class Audit extends Projet{
+public class Audit extends Projet {
 	
 	@Column(columnDefinition = "DATE")
 	private LocalDate debut;
+	
 	@Column(columnDefinition = "DATE")
 	private LocalDate fin;
 	

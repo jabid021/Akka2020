@@ -10,8 +10,8 @@ import dao.jdbc.DAOEmployeJDBC;
 
 public class Context {
 
-	private static Context _instance;
-	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("entreprise");
+	private static Context _instance=null;
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("nom_persistence");
 	
 	//Factory
 	private IDAODepartement daoDepartement= new DAODepartementJDBC();
@@ -44,7 +44,15 @@ public class Context {
 	public IDAOEmploye getDaoEmploye() {
 		return daoEmploye;
 	}
-
+	public EntityManagerFactory getEmf() {
+		return emf;
+	}
+	
+	public void closeEmf() 
+	{
+		emf.close();
+	}
+	 
 
 
 	

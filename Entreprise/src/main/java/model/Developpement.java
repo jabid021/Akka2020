@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+
+
 @Entity
-@DiscriminatorValue("developpement")
+@DiscriminatorValue("Developpement")
 public class Developpement extends Projet{
 	
 	private String technologie;

@@ -11,8 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 
 
 
@@ -23,11 +24,17 @@ public class Vehicule {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
+
+@Table(name="Bike")
+public class Moto {
+	
+	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="M", nullable=false,columnDefinition="VARCHAR(50)")
-	@NotEmpty
-	@Size(max=50)
 	protected Marque marque;
 	
 	@Column(name="speed")
@@ -55,6 +62,6 @@ public class Vehicule {
 
 	public void setVitesse(int vitesse) {
 		this.vitesse = vitesse;
-	}
+	}}}
 	
-}
+

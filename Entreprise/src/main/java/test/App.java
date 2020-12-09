@@ -2,13 +2,17 @@ package test;
 
 import java.util.Scanner;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import config.Context;
 import model.Departement;
 import model.Employe;
 
 public class App {
 
-	public static int saisieInt(String msg) 
+	/*public static int saisieInt(String msg) 
 	{
 		System.out.println(msg);
 		Scanner sc = new Scanner(System.in);
@@ -33,6 +37,7 @@ public class App {
 		
 		menu();
 	}
+
 
 	private static void menu() {
 		System.out.println("\nApplication de l'entreprise");
@@ -136,12 +141,6 @@ public class App {
 		Context.getInstance().getDaoEmploye().insert(e);
 
 	}
-
-	
-	
-	//Departements//
-	
-	
 	
 	private static void menuDept() {
 		System.out.println("\nGestion Departements");
@@ -206,6 +205,27 @@ public class App {
 		Departement d = new Departement(saisieString("Saisir nom"),saisieString("Saisir lieu"));
 		Context.getInstance().getDaoDepartement().insert(d);
 
+	}
+*/
+	public static void main(String[] args) {
+
+		//menu();
+		
+EntityManagerFactory emf = Persistence.createEntityManagerFactory("nom_persistence");
+		
+		EntityManager em = emf.createEntityManager();
+		
+		em.getTransaction().begin();
+		
+		
+		//em.persist(b);
+		//em.persist(harry);
+		//em.persist(b2);
+		
+		em.getTransaction().commit();
+	
+		emf.close();
+		
 	}
 
 }

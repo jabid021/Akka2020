@@ -4,17 +4,22 @@ import java.util.List;
 
 public interface IDAO<T,K> {
 
-	public void insert(T t);
-	public void update(T t);
-	public void delete(K id);
+	String lien="jdbc:mysql://localhost:3306/";
+	String db="scott";
+	String login="root";
+	String password="";
+
+	/*public void ajouter(T t);
+	public void modifier(T t);
+	public void supprimer(K id);
+	public List<T> selectAll();*/
+	public T selectById(K id);
+
+
+
 	public T findById(K id);
 	public List<T> findAll();
-/*
-	 public T findById(K id); // equivalent to selectById
-	 public List<T> findAll(); //selectAll
-	 public void insert(T objet); //ajouter
-	 public void update(T objet); //modifier
-	 public void delete(T objet); //supprimer 
-	 */
-
+	public void insert(T objet);
+	public void update(T objet);
+	public void delete(T objet);
 }

@@ -11,23 +11,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.SequenceGenerators;
 import javax.persistence.Table;
 
+
 @Entity
-@SequenceGenerator(name="departement", initialValue = 50, allocationSize = 10)
+@SequenceGenerator(name="departement", initialValue = 50,allocationSize = 10)
 @Table(name="dept")
 public class Departement implements Serializable {
+
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "departement")
 	@Column(name="deptno")
 	private int numero;
+	
 	@Column(name="dname")
 	private String nom;
-	@Column(name="loc")
+	
+	@Column(name="Loc")
 	private String lieu;
 	
 	@OneToMany(mappedBy = "departement")
-	private List<Employe> employes  = new ArrayList<>();
+	private List<Employe> employes;
 
 	public Departement() {
 	}
