@@ -5,28 +5,28 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import config.Context;
-import dao.IDAOProjet;
+import dao.IDAOOrdinateur;
 import model.Departement;
-import model.Projet;
+import model.Ordinateur;
 
-public class DAOProjet implements IDAOProjet{
+public class DAOOrdinateurJPA implements IDAOOrdinateur{
 
 	@Override
-	public Projet findById(Integer id) {
+	public Ordinateur findById(Integer id) {
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		Projet b = em.find(Projet.class, id);
+		Ordinateur b = em.find(Ordinateur.class, id);
 		em.close();
 		return b;
 	}
 
 	@Override
-	public List<Projet> findAll() {
+	public List<Ordinateur> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void insert(Projet objet) {
+	public void insert(Ordinateur objet) {
 
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
@@ -36,7 +36,7 @@ public class DAOProjet implements IDAOProjet{
 	}
 
 	@Override
-	public void update(Projet objet) {
+	public void update(Ordinateur objet) {
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		em.merge(objet);
@@ -49,7 +49,7 @@ public class DAOProjet implements IDAOProjet{
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 
-		Projet d=em.find(Projet.class, id);
+		Ordinateur d=em.find(Ordinateur.class, id);
 		
 		em.remove(d);
 		
@@ -58,3 +58,4 @@ public class DAOProjet implements IDAOProjet{
 	}
 
 }
+

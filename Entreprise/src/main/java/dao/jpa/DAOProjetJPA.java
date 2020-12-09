@@ -5,28 +5,28 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import config.Context;
-import dao.IDAOMarque;
+import dao.IDAOProjet;
 import model.Departement;
-import model.Marque;
+import model.Projet;
 
-public class DAOMarque implements IDAOMarque{
+public class DAOProjetJPA implements IDAOProjet{
 
 	@Override
-	public Marque findById(Integer id) {
+	public Projet findById(Integer id) {
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		Marque b = em.find(Marque.class, id);
+		Projet b = em.find(Projet.class, id);
 		em.close();
 		return b;
 	}
 
 	@Override
-	public List<Marque> findAll() {
+	public List<Projet> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void insert(Marque objet) {
+	public void insert(Projet objet) {
 
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
@@ -36,7 +36,7 @@ public class DAOMarque implements IDAOMarque{
 	}
 
 	@Override
-	public void update(Marque objet) {
+	public void update(Projet objet) {
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		em.merge(objet);
@@ -48,7 +48,8 @@ public class DAOMarque implements IDAOMarque{
 	public void delete(Integer id) {
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
-		Marque d=em.find(Marque.class, id);
+
+		Projet d=em.find(Projet.class, id);
 		
 		em.remove(d);
 		

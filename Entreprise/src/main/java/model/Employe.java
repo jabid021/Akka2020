@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -33,14 +34,21 @@ public class Employe implements Serializable {
 	@Column(name="comm", nullable=true)
 	private Integer commission;
 	
-	@ManyToOne
+	
+	
+	@Embedded
+	private Adresse adresse;
+	
+	
+	@ManyToOne()
 	@JoinColumn(name="mgr")
 	private Employe manager;
-	@ManyToOne
+	
+	@ManyToOne()
 	@JoinColumn(name="deptno")
 	private Departement departement;
 	
-	@ManyToMany
+	@ManyToMany()
 	private List<Projet> missions = new ArrayList<>();
 	
 	@OneToOne
@@ -162,6 +170,10 @@ public class Employe implements Serializable {
 	public void setOrdinateur(Ordinateur ordinateur) {
 		this.ordinateur = ordinateur;
 	}
+
+
+
+	
 
 
 }

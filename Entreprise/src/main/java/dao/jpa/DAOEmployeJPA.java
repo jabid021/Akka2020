@@ -9,7 +9,7 @@ import dao.IDAOEmploye;
 import model.Departement;
 import model.Employe;
 
-public class DAOEmploye implements IDAOEmploye {
+public class DAOEmployeJPA implements IDAOEmploye {
 
 	@Override
 	public Employe findById(Integer id) {
