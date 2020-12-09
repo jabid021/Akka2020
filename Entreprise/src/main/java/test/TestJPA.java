@@ -1,30 +1,29 @@
 package test;
 
-import javax.persistence.EntityManager;
-
 import config.Context;
+import dao.IDAODepartement;
+import dao.jpa.DAODepartementJPA;
 import model.Departement;
 import model.Employe;
 
 public class TestJPA {
 	public static void main(String[] args) {
 		
-		Departement dept=new Departement("Formation", "Paris");
-		Employe e = new Employe(1234, "Abid", "Formateur", "2020-02-10", 1000, null, dept);
 		
-		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		
-		em.getTransaction().begin();
-		
-		//em.persist(dept);
-		//em.persist(e);
+		DAODepartementJPA daoDept= new DAODepartementJPA();
 		
 		
 		
-		
-		
-		em.getTransaction().commit();
-		
+		for(Departement d  : daoDept.findAll()) 
+		{
+			System.out.println(d.getNumero());
+			System.out.println(d.getLieu());
+			System.out.println(d.getNom());
+			System.out.println(d.getEmployes());
+	
+			
+		}
 
 		Context.getInstance().closeEmf();
 	}

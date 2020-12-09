@@ -5,54 +5,53 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import config.Context;
-import dao.IDAODepartement;
 import dao.IDAOEmploye;
 import model.Departement;
 import model.Employe;
 
-public class DAOEmployeJPA implements IDAOEmploye{
+public class DAOEmployeJPA implements IDAOEmploye {
 
 	@Override
 	public Employe findById(Integer id) {
-		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		Employe e = em.find(Employe.class, id);
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		Employe b = em.find(Employe.class, id);
 		em.close();
-		return e;
+		return b;
 	}
 
 	@Override
 	public List<Employe> findAll() {
 		// TODO Auto-generated method stub
-				return null;
-			}
-	@Override
-	public void insert(Employe e) {
-		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		em.persist(e);
-		em.getTransaction().commit();
-		em.close();
-	}// TODO Auto-generated method stub
-		
-
-	@Override
-	public void update(Employe e) {
-		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		em.merge(e);
-		em.getTransaction().commit();
-		em.close();
-		
+		return null;
 	}
 
 	@Override
-	public void delete(Employe e) {
-		EntityManager em=Context.getInstance().getEmf().createEntityManager();
+	public void insert(Employe objet) {
+
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
-		e=em.merge(e);
-		
-		em.remove(e);
-		
+		em.persist(objet);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	@Override
+	public void update(Employe objet) {
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		em.getTransaction().begin();
+		em.merge(objet);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	@Override
+	public void delete(Integer id) {
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		em.getTransaction().begin();
+		Employe d=em.find(Employe.class, id);
+
+		em.remove(d);
+
 		em.getTransaction().commit();
 		em.close();
 	}
@@ -62,5 +61,4 @@ public class DAOEmployeJPA implements IDAOEmploye{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

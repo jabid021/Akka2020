@@ -5,8 +5,8 @@ import javax.persistence.Persistence;
 
 import dao.IDAODepartement;
 import dao.IDAOEmploye;
-import dao.jdbc.DAODepartementJDBC;
 import dao.jdbc.DAOEmployeJDBC;
+import dao.jpa.DAODepartementJPA;
 
 public class Context {
 
@@ -14,7 +14,7 @@ public class Context {
 	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("nom_persistence");
 	
 	//Factory
-	private IDAODepartement daoDepartement= new DAODepartementJDBC();
+	private IDAODepartement daoDepartement= new DAODepartementJPA();
 	private IDAOEmploye daoEmploye= new DAOEmployeJDBC();
 	
 	

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -44,17 +45,22 @@ public class Employe implements Serializable {
 	@Column(name="comm", nullable = true)
 	private Integer commission;
 	
-	@ManyToOne
-	@Column(name="mgr")
+	
+	
+	@Embedded
+	private Adresse adresse;
+	
+	
+	@ManyToOne()
+	@JoinColumn(name="mgr")
 	private Employe manager;
 	
-	@ManyToOne
-	@Column(name="dep")
+	@ManyToOne()
+	@JoinColumn(name="deptno")
 	private Departement departement;
 	
-	@ManyToMany
-	@Column(name="mission")
-	private List<Projet> missions= new ArrayList<>();
+	@ManyToMany()
+	private List<Projet> missions = new ArrayList<>();
 	
 	@OneToOne
 	private Ordinateur ordinateur;
@@ -174,6 +180,10 @@ public class Employe implements Serializable {
 	public void setOrdinateur(Ordinateur ordinateur) {
 		this.ordinateur = ordinateur;
 	}
+
+
+
+	
 
 
 }

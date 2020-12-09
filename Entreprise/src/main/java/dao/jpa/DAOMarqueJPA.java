@@ -5,27 +5,28 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import config.Context;
-import dao.IDAODepartement;
+import dao.IDAOMarque;
 import model.Departement;
+import model.Marque;
 
-public class DAODepartement implements IDAODepartement{
+public class DAOMarqueJPA implements IDAOMarque{
 
 	@Override
-	public Departement findById(Integer id) {
+	public Marque findById(Integer id) {
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		Departement b = em.find(Departement.class, id);
+		Marque b = em.find(Marque.class, id);
 		em.close();
 		return b;
 	}
 
 	@Override
-	public List<Departement> findAll() {
+	public List<Marque> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void insert(Departement objet) {
+	public void insert(Marque objet) {
 
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
@@ -35,7 +36,7 @@ public class DAODepartement implements IDAODepartement{
 	}
 
 	@Override
-	public void update(Departement objet) {
+	public void update(Marque objet) {
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		em.merge(objet);
@@ -47,7 +48,7 @@ public class DAODepartement implements IDAODepartement{
 	public void delete(Integer id) {
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
-		Departement d=em.find(Departement.class, id);
+		Marque d=em.find(Marque.class, id);
 		
 		em.remove(d);
 		
