@@ -1,0 +1,66 @@
+
+
+<!-- Preciser l'enctype s'il y a des fichiers à envoyer dans le formulaire (CV,pdf...)-->
+<form  enctype="multipart/form-data" name="inscription" action="test.html">
+<fieldset>
+  <legend>Infos</legend>
+<label for="login">Saisie Login : </label>
+<input  required maxlength="10" size=50 placeholder="saisir votre login" id="login" name="login" type="text">
+
+<br>
+
+Saisie Password : <input  placeholded="saisir password" name="password" type="password">
+
+<br>
+
+Saisie Commentaire : <textarea autofocus name="com" rows="8" cols="80"></textarea>
+</fieldset>
+<br>
+
+Choix d'un produit :
+<select name="produit">
+    <option value="12">Short</option>
+    <option selected value="Mr">Monsieur</option>
+</select>
+
+<br>
+
+Choix multiple :
+<input checked value="1" name="choixCheck" type="checkbox"> Valeur 1
+<input checked value="check2" name="choixCheck" type="checkbox"> Valeur 2
+<input name="choixCheck" type="checkbox"> Valeur 3
+
+<br>
+
+Choix Simple :
+
+<input name="choix" value="radio1" id="check1" type="radio"> <label for="check1">Choix 1</label>
+<input checked name="choix"  type="radio"> Choix 2
+<input name="choix"  type="radio"> Choix 3
+<br>
+
+<input type="file">
+
+<br>
+
+<!-- Check si le mail semble correct  -->
+<input readonly value="jordan@gmail.com" type="email">
+<input type="url">
+<input name="age" type="number" min="0" max="100" step="2" value=0>
+<input type="date">
+<input type="time">
+
+<input name="color" type="color">
+<input type="range" min=1 max=10 value=5>
+
+<br>
+
+<input type="submit" value="Valider" >
+<input type="reset" value="Annuler">
+
+
+
+</form>
+<!--2 boutons identiques -->
+<input value="Ok" type="button">
+<button>Ok</button>
