@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @SequenceGenerator(name="departement", initialValue = 50, allocationSize = 10)
@@ -27,6 +28,8 @@ public class Departement implements Serializable {
 	private String nom;
 	@Column(name="loc")
 	private String lieu;
+	
+	
 	
 	
 	
