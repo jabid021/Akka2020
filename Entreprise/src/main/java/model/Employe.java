@@ -8,30 +8,41 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+
+
 @Entity
-@SequenceGenerator(name="employe")
+@SequenceGenerator(name="emp")
 @Table(name="emp")
 public class Employe implements Serializable {
 
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="empno")
 	private int numero;
+	
 	@Column(name="ename")
 	private String nom;
+	
 	@Column(name="job")
 	private String poste;
-	@Column(name="hiredate",columnDefinition = "DATE")
+	
+	@Column(name="hiredate", columnDefinition = "DATE")
 	private LocalDate embauche;
+	
 	@Column(name="sal")
 	private int salaire;
-	@Column(name="comm", nullable=true)
+	
+	@Column(name="comm", nullable = true)
 	private Integer commission;
 	
 	
@@ -52,7 +63,6 @@ public class Employe implements Serializable {
 	private List<Projet> missions = new ArrayList<>();
 	
 	@OneToOne
-	@JoinColumn(name="id_ordi")
 	private Ordinateur ordinateur;
 
 

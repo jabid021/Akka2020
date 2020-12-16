@@ -9,7 +9,7 @@ import dao.IDAOProjet;
 import model.Departement;
 import model.Projet;
 
-public class DAOProjetJPA implements IDAOProjet{
+public class DAOProjet implements IDAOProjet{
 
 	@Override
 	public Projet findById(Integer id) {

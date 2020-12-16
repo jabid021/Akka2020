@@ -1,5 +1,9 @@
 package test;
 
+
+import java.time.LocalDate;
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -55,9 +59,7 @@ public class App {
 		em.persist(b2);
 		
 		em.getTransaction().commit();
-		
-		
-		em.close();
+	
 		emf.close();
 		
 	}

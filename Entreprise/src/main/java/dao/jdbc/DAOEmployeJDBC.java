@@ -13,14 +13,8 @@ import model.Employe;
 
 public class DAOEmployeJDBC implements IDAOEmploye{
 
-	String lien="jdbc:mysql://localhost:8889/";
-	String db="scott";
-	String login="root";
-	String password="root";
 	
-	
-	@Override
-	public void insert(Employe e) {
+	public void ajouter(Employe e) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -52,8 +46,8 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 		
 	}
 
-	@Override
-	public void update(Employe e) {
+	
+	public void modifier(Employe e) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -87,8 +81,8 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 		
 	}
 
-	@Override
-	public void delete(Integer id) {
+	
+	public void supprimer(Integer id) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -106,8 +100,8 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 		
 	}
 
-	@Override
-	public Employe findById(Integer id) {
+	
+	public Employe selectById(Integer id) {
 		Employe emp=null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -138,8 +132,8 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 		return emp;
 	}
 
-	@Override
-	public List<Employe> findAll() {
+	
+	public List<Employe> selectAll() {
 		List<Employe> employes  = new ArrayList();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -169,7 +163,7 @@ public class DAOEmployeJDBC implements IDAOEmploye{
 		return employes;
 	}
 
-	@Override
+	
 	public List<Employe> SelectByPoste(String poste) {
 		List<Employe> employes  = new ArrayList();
 		try {
