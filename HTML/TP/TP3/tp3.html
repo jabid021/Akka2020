@@ -1,0 +1,70 @@
+<form>
+<fieldset>
+  <legend>Informations personnelles</legend>
+
+<table>
+  <tr>
+    <td><label for="email">Email</label></td>
+    <td><input id="email" type="mail" placeholder="lorem@mail.fr"></td>
+  </tr>
+
+  <tr>
+    <td><label for="password">Mot de passe</label></td>
+    <td><input id="password" type="password" placeholder="*******"></td>
+  </tr>
+
+  <tr>
+    <td><label for="civ">Sexe</label></td>
+    <td><select id="civ"><option>Femme</option><option>Homme</option><option>NC</option></select></td>
+  </tr>
+
+  <tr>
+    <td><label for="birthdate">Date de naissance</label></td>
+    <td><input id="birthdate" type="date" value="2000-01-01"></td>
+  </tr>
+
+</table>
+
+
+
+</fieldset>
+
+<fieldset>
+  <legend>Préférences</legend>
+
+  <table>
+    <tr>
+      <td>Couleur favorite</td>
+      <td>
+        <input name="color" id="red"type="radio"><label for="red">Rouge</label>
+        <input name="color" id="green"type="radio"><label for="green">Vert</label>
+        <input name="color" id="blue"type="radio"><label for="blue">Bleu</label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Centres d'intérêts</td>
+      <td>
+        <input name="loisir" id="sport"type="checkbox"><label for="sport">Sport</label>
+        <input name="loisir" id="danse"type="checkbox"><label for="danse">Danse</label>
+        <input name="loisir" id="musique"type="checkbox"><label for="musique">Musique</label>
+        <input name="loisir" id="informatique"type="checkbox"><label for="informatique">Informatique</label>
+      </td>
+    </tr>
+  </table>
+
+
+
+</fieldset>
+
+<fieldset>
+    <legend>Commentaires</legend>
+        <table>
+            <tr><td>Message</td><td><textarea rows="4" cols="30"></textarea></td></tr>
+        </table>
+</fieldset>
+
+
+
+<input type="submit" value="Envoyer">
+</form>
