@@ -1,0 +1,42 @@
+
+<html>
+
+<head>
+
+  <style>
+
+    /*
+      Passe le texte en rouge de tous les span qui sont dans une balise p
+     */
+      p span {color:red;}
+
+/*
+    Passe en taille 12px les span contenus directement dans la balise <p>
+*/
+      p > span {font-size:12px;}
+
+/* Si deux balises p se suivent, le 2e p aura les modifs*/
+      p + p
+      {
+        background-color:yellow;
+      }
+/*Cible le 2e enfant d'une balise p  */ 
+p:nth-child(2){}
+p:empty{}
+
+
+</style>
+
+</head>
+
+<p>Parag 1</p>
+<p>Parag 2
+
+  <span>Parag2.A</span>
+  <span>Parag2.B
+      <span>Parag2.B.1</span>
+  </span>
+
+</p>
+<p>Parag 3</p>
+<html>

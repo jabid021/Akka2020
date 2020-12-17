@@ -1,8 +1,8 @@
 video{max-width: 160px;}
-  h3{color:red;border-bottom:solid red 2px}
+h3{color:red;border-bottom:solid red 2px}
 
 
-
+  .texteRouge{color:red;}
   .texteDroite{text-align:right;}
   .texteVert{color:green;}
   .fondGris{background-color:lightgrey;}
