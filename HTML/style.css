@@ -1,0 +1,20 @@
+video{max-width: 160px;}
+  h3{color:red;border-bottom:solid red 2px}
+
+
+
+  .texteDroite{text-align:right;}
+  .texteVert{color:green;}
+  .fondGris{background-color:lightgrey;}
+
+#lireSuite{
+  font-size:70px;
+  color:orange;
+  cursor : help;
+}
+
+#logo{
+  border:solid black 2px;
+  border-radius:50%;
+
+}
