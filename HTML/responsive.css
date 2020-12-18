@@ -1,0 +1,47 @@
+@media(max-width:576px )
+{
+  #menuPc{display: none;}
+  #content
+  {
+    background-color: blue;
+    width: 350px;
+    height: 300px;
+    margin-left:10%;
+    margin-left:10%;
+  }
+
+  .imgContent
+  {
+    display:inline-block;
+    margin-left:50px;
+    margin-right:50px;
+    height: auto;
+  }
+
+}
+
+
+@media(min-width:576px)
+{
+
+  #menuTel{display: none;}
+  #content
+  {
+    background-color: lightgrey;
+    width: 950px;
+    height: 150px;
+    margin-left:15%;
+    margin-right:15%;
+  }
+
+  .imgContent
+  {
+    display:inline-block;
+    margin-left:80px;
+    margin-right:80px;
+    height: auto;
+  }
+
+}
+
+}

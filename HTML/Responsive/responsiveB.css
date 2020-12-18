@@ -1,0 +1,27 @@
+@media(max-width:576px )
+{
+  #menuPc{display: none;}
+  #content
+  {
+    background-color: blue;
+    height: 300px;
+  }
+}
+
+
+@media(min-width:576px)
+{
+
+  #menuTel{display: none;}
+  #content
+  {
+    background-color: lightgrey;
+  
+    height: 150px;
+
+  }
+
+
+}
+
+}
