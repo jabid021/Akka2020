@@ -1,0 +1,17 @@
+#errorConnect
+{
+  color:red;
+  display:none;
+}
+
+
+#content
+{
+  margin:75px;
+}
+
+
+#addForm,#updateForm
+{
+  display:none;
+}
