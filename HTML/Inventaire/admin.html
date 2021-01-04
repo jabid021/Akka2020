@@ -8,17 +8,101 @@
 <div id="content">
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link" id="pills-emp-tab" data-toggle="pill" href="#pills-emp" role="tab" aria-controls="pills-emp" aria-selected="false">Gestion employés</a>
+      <a class="nav-link active" id="pills-emp-tab" data-toggle="pill" href="#pills-emp" role="tab" aria-controls="pills-emp" aria-selected="true">Gestion employés</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" id="pills-ordi-tab" data-toggle="pill" href="#pills-ordi" role="tab" aria-controls="pills-ordi" aria-selected="true">Gestion ordinateurs</a>
+      <a class="nav-link " id="pills-ordi-tab" data-toggle="pill" href="#pills-ordi" role="tab" aria-controls="pills-ordi" aria-selected="false">Gestion ordinateurs</a>
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade " id="pills-emp" role="tabpanel" aria-labelledby="pills-emp-tab">1</div>
+    <div class="tab-pane fade show active" id="pills-emp" role="tabpanel" aria-labelledby="pills-emp-tab">
+
+
+
+
+
+
+      <h1>Liste des employés</h1>
+           <input type="button" class ="btn btn-success" value="Ajouter">
+           <table class="table table-striped">
+             <thead>
+               <tr>
+                 <th>Id</th>
+                 <th>Login</th>
+                 <th>Password</th>
+                 <th>Mail</th>
+                 <th>PC</th>
+                 <th>Actions</th>
+                 </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>1</td>
+                 <td>Red</td>
+                 <td>123r</td>
+                 <td>re@gmail.com</td>
+                 <td>1-DELL</td>
+                 <td>
+                   <input type="button" class ="btn btn-warning" value="Modifier">
+                   <input type="button" class ="btn btn-danger" value="Supprimer">
+                 </td>
+               </tr>
+
+               <tr>
+                 <td>2</td>
+                 <td>Raul</td>
+                 <td>123ra</td>
+                 <td>Raul@gmail.com</td>
+                 <td>3-ASUS</td>
+                 <td>
+                   <input type="button" class ="btn btn-warning" value="Modifier">
+                   <input type="button" class ="btn btn-danger" value="Supprimer">
+                 </td>
+               </tr>
+             </tbody>
+           </table>
+
+
+
+      <div id="addFormEmp">
+             <h3>Ajouter nouveau Employé</h3>
+             <form action="gestionEmploye.html" method="post">
+               <label for="add_login">Login :</label> <input required id="add_login" name="login" type="text" placeholder="Saisir votre login"><br>
+               <label for="add_password">Password :</label> <input required id="add_password" name="password" type="password" placeholder="Saisir votre password"><br>
+               <label for="add_mail">Mail :</label> <input required id="add_mail" name="mail" type="email" placeholder="Saisir votre mail"><br>
+               <label for="add_pc">PC : </label>
+               <select id="add_pc" name="id_pc">
+                   <option value="choose" selected="selected">Choisir un Pc</option>
+                   <option value="2" >2-HP</option>
+                   <option value="4" >4-DELL</option>
+               </select><br>
+
+               <input class ="btn btn-success" type="submit" name="ajouter" value="Ajouter">
+             </form>
+         </div>
+
+           <div id="updateFormEmp">
+             <h3>Modifier l'employé</h3>
+             <form action="gestionEmploye.html" method="post">
+               <label for="update_login">Login :</label> <input required id="update_login" name="login" value="red" type="text" placeholder="Saisir votre login"><br>
+               <label for="update_password">Password :</label> <input required id="update_password" name="password" type="password" placeholder="Saisir votre password"><br>
+               <label for="update_mail">Mail :</label> <input required id="update_mail" name="mail" value="re@gmail.com" type="email" placeholder="Saisir votre mail"><br>
+               <label for="update_pc">PC : </label>
+               <select id="update_pc" name="id_pc">
+                   <option value="1" selected="selected">1-DELL</option>
+                   <option value="2" >2-HP</option>
+                   <option value="4" >4-DELL</option>
+               </select><br>
+
+               <input class ="btn btn-warning" type="submit" name="modifier" value="Modifier">
+             </form>
+           </div>
+
+         </div>
+
 
     <!-- Tableau gestion des machines (showAll + add + update + delete) -->
-    <div class="tab-pane fade show active" id="pills-ordi" role="tabpanel" aria-labelledby="pills-ordi-tab">
+    <div class="tab-pane fade" id="pills-ordi" role="tabpanel" aria-labelledby="pills-ordi-tab">
 
 
       <h1>Liste des machines</h1>
@@ -39,7 +123,7 @@
             <td>1</td>
             <td>DELL</td>
             <td>16</td>
-            <td>Disponible</td>
+            <td>Red</td>
             <td>
               <input type="button" class ="btn btn-warning" value="Modifier">
               <input type="button" class ="btn btn-danger" value="Supprimer">
@@ -50,7 +134,7 @@
             <td>2</td>
             <td>HP</td>
             <td>16</td>
-            <td>Jordan</td>
+            <td>Disponible</td>
             <td>
               <input type="button" class ="btn btn-warning" value="Modifier">
               <input disabled type="button" class ="btn btn-danger" value="Supprimer">
@@ -61,7 +145,7 @@
             <td>3</td>
             <td>Asus</td>
             <td>16</td>
-            <td>Disponible</td>
+            <td>Raul</td>
             <td>
               <input type="button" class ="btn btn-warning" value="Modifier">
               <input type="button" class ="btn btn-danger" value="Supprimer">
@@ -72,7 +156,7 @@
             <td>4</td>
             <td>DELL</td>
             <td>16</td>
-            <td>Olivier</td>
+            <td>Disponible</td>
             <td>
               <input type="button" class ="btn btn-warning" value="Modifier">
               <input disabled type="button" class ="btn btn-danger" value="Supprimer">
@@ -82,7 +166,7 @@
       </table>
 
 
-<div id="addForm">
+<div id="addFormPC">
   <h3>Ajouter nouveau PC</h3>
   <form action="gestionPc.html" method="post">
     <label for="add_marque">Marque : </label>
@@ -100,7 +184,7 @@
 </div>
 
 
-<div id="updateForm">
+<div id="updateFormPC">
   <h3>Modifier le PC</h3>
   <form action="gestionPc.html" method="post">
     <label for="update_marque">Marque : </label>
