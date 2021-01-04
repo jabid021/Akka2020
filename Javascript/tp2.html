@@ -12,38 +12,40 @@
 <p>Parag fin</p>
 
 
-<input id="login" type="text" value="Jordan"> 
 
 
 <script>
-
-var parag1 = document.getElementById("paragPrinci");
-
 document.body.style.backgroundColor="lightyellow";
-parag1.style.color="red";
 
 
-var secondaires = document.getElementsByClassName("secondaire");
-
+var choix = prompt("Quel element à modifier ? id/class/tag");
+var color = prompt("Quelle couleur ?");
+if(choix=="id")
+{
+	document.getElementById("paragPrinci").style.color=color;
+}
+else if(choix=="class")
+{
+	var secondaires = document.getElementsByClassName("secondaire");
 	for(i=0;i<secondaires.length;i++)
 	{
-		secondaires[i].style.fontSize="25px";
+		secondaires[i].style.color=color;
 	}
+}
 
-
-var parags = document.getElementsByTagName("p");
+else
+{
+	var parags = document.getElementsByTagName("p");
 
 for(i=0;i<parags.length;i++)
 	{
-		parags[i].style.border="solid black 2px";
+		parags[i].style.color=color;
 	}
+}
 
 
 
-//parag1.innerHTML="<ul><li>1</li></ul>";
-//document.getElementById("login").value="Jeremy";
-//alert(document.getElementById("login").value);
-//document.title="AKKA2020";
+
 
 
 </script>
