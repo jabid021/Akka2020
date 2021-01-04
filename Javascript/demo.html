@@ -9,7 +9,46 @@
 <!-- Script dans la page html -->
 <script charset="UTF-8">
 
-var choix = prompt("Saisir un nombre");
+var personne = new Object();
+personne.nom="Abid";
+personne.prenom="Jordan";
+
+
+var p2 = {
+	nom:"Abid",
+	prenom:"Jeremy"
+};
+
+console.log("Dans la console");
+
+alert(personne);
+alert(personne.nom);
+alert(personne["prenom"]);
+
+/*
+var tab1 = new Array();
+var tab2=["Jordan","Jeremy"];
+var tab3=[5,15,20,105,12];
+//alert(tab2);
+
+/* Change le séparateur 
+//alert(tab2.join("/"));
+
+tab2.push("Richard");
+
+alert(tab2.reverse());
+alert(tab3.sort(compare));
+
+
+function compare(x,y){return x-y;}
+
+*/
+//alert(tab2);
+
+//alert(tab2.shift());
+//alert(tab2.pop());
+
+/*var choix = prompt("Saisir un nombre");
 carre(choix);
 
 
@@ -35,7 +74,17 @@ function dialogues()
 	}
 }
 
+var age=20;
+var choix = (age<18) ? "mineur" : "majeur";
+while(){}
+do{} while();
+for(i=0;i<=10;i++){}
 
+for(e in eleves){}
+tab2[40]="TOTO";
+tab2.length=2;
+alert(tab2);
+*/
 
 
 
