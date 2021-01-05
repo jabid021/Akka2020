@@ -1,15 +1,112 @@
+<style>
+	#game,#timer{display:none;}
 
+</style>
+
+<h1 id="timer">00:00</h1>
+<input id="playBtn" type="button" value="play">
+<input id="pauseBtn" type="button" value="pause">
+
+
+<div id="game">
+	<h3 id="txtCapitale"><h3>
+	<input type="text" id="reponse">
+	<input type="button" id="validateBtn" value="Valider"><br/>
+	<span id="result"></span>
+</div>
+<div id="score"/>
 
 <script>
+var min=0;
+var sec=0;
+var textTimer;
 p1 = {pays:"France",capitale:"Paris"};
 p2 = {pays:"Suisse",capitale:"Berne"};
 p3 = {pays:"Pologne",capitale:"Varsovie"};
 p4 = {pays:"Norvege",capitale:"Oslo"};
 
 
-carte = [p1,p2,p3,p4];
+var carte = [p1,p2,p3,p4];
+var i=0;
+var score = 0;
 
-score = 0;
+
+playBtn.onclick=play;
+pauseBtn.onclick=pause;
+validateBtn.onclick=partie;
+reponse.onkeypress=launch;
+
+function timerCalcul()
+{
+	//Calculer time
+	sec++;
+	if(sec==60)
+	{
+		sec=0;min++;
+	}
+	textTimer=(min<10) ? "0"+min : min;
+	textTimer+=":";
+	textTimer += (sec<10) ? "0"+sec : sec;
+	timer.innerHTML=textTimer;
+
+}
+
+
+function play()
+{
+	timer.style.display="block";
+	playBtn.disabled=true;
+	chrono=setInterval(timerCalcul,1000);
+	game.style.display="block";
+	txtCapitale.innerHTML="Quelle est la capitale du pays suivant : "+carte[0].pays;
+}
+
+function pause()
+{
+	playBtn.disabled=false;
+	clearInterval(chrono);
+	game.style.display="none";
+}
+
+function partie()
+{
+	if(reponse.value==carte[i].capitale)
+	{
+		score++;
+		result.innerHTML="bonne réponse !<img width=50 height=50 src='content.png'>";
+		result.style.color="green";
+	}
+	else
+	{
+		result.innerHTML="mauvaise réponse ! <img width=50 height=50 src='angry.png'>";
+		result.style.color="red";
+	}
+	document.getElementById("score").innerHTML=score+" points";
+	
+	if(i<carte.length-1)
+	{
+		reponse.value="";
+		i++;
+		txtCapitale.innerHTML="Quelle est la capitale du pays suivant : "+carte[i].pays;
+	}
+	else
+	{
+		pause();
+		game.style.display="none";
+	}
+}
+
+
+function launch(event)
+{
+	
+	if(event.keyCode==13)
+	{
+		partie();
+	}
+}
+
+/*
 for(i=0;i<carte.length;i++)
 {
   guess=prompt("Capitale de la "+carte[i].pays+" ?  ("+(i+1)+"/ "+carte.length+")")
@@ -21,5 +118,5 @@ for(i=0;i<carte.length;i++)
   else{alert("bad");}
 }
 
-alert("Vous avez un total de : "+score+" sur "+carte.length);
+alert("Vous avez un total de : "+score+" sur "+carte.length);*/
   </script>
