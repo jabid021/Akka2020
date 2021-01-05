@@ -25,6 +25,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <h1>Liste des employés</h1>
            <input id="btnAddEmp" type="button" class ="btn btn-success" value="Ajouter">
            <table class="table table-striped">
@@ -107,12 +127,60 @@
          </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Tableau gestion des machines (showAll + add + update + delete) -->
     <div class="tab-pane fade" id="pills-ordi" role="tabpanel" aria-labelledby="pills-ordi-tab">
 
 
       <h1>Liste des machines</h1>
-        <input type="button" class ="btn btn-success" value="Ajouter">
+        <input id="btnAddPC" type="button" class ="btn btn-success" value="Ajouter">
 
       <table class="table table-striped">
         <thead>
@@ -131,7 +199,7 @@
             <td>16</td>
             <td>Red</td>
             <td>
-              <input type="button" class ="btn btn-warning" value="Modifier">
+              <input onclick="updatePC(1,'DELL',16)" type="button" class ="btn btn-warning" value="Modifier">
               <input type="button" class ="btn btn-danger" value="Supprimer">
             </td>
           </tr>
@@ -139,10 +207,10 @@
           <tr>
             <td>2</td>
             <td>HP</td>
-            <td>16</td>
+            <td>12</td>
             <td>Disponible</td>
             <td>
-              <input type="button" class ="btn btn-warning" value="Modifier">
+              <input onclick="updatePC(2,'HP',12)" type="button" class ="btn btn-warning" value="Modifier">
               <input disabled type="button" class ="btn btn-danger" value="Supprimer">
             </td>
           </tr>
@@ -153,7 +221,7 @@
             <td>16</td>
             <td>Raul</td>
             <td>
-              <input type="button" class ="btn btn-warning" value="Modifier">
+              <input onclick="updatePC(3,'Asus',16)" type="button" class ="btn btn-warning" value="Modifier">
               <input type="button" class ="btn btn-danger" value="Supprimer">
             </td>
           </tr>
@@ -161,10 +229,10 @@
           <tr>
             <td>4</td>
             <td>DELL</td>
-            <td>16</td>
+            <td>4</td>
             <td>Disponible</td>
             <td>
-              <input type="button" class ="btn btn-warning" value="Modifier">
+              <input onclick="updatePC(4,'DELL',4)" type="button" class ="btn btn-warning" value="Modifier">
               <input disabled type="button" class ="btn btn-danger" value="Supprimer">
             </td>
           </tr>
@@ -193,12 +261,10 @@
 <div id="updateFormPC">
   <h3>Modifier le PC</h3>
   <form action="gestionPc.html" method="post">
+  	<input type="hidden" id="update_id_pc" name="id_pc">
+
     <label for="update_marque">Marque : </label>
     <select id="update_marque" name="marque">
-        <option>Choisir une marque</option>
-        <option value="DELL" >DELL</option>
-        <option selected="selected" value="HP" >HP</option>
-        <option value="Asus" >Asus</option>
     </select>
     <br>
     <label for="update_ram">RAM</label>
@@ -220,7 +286,7 @@
 
 
 pcDispo=[{numero:2,marque:"HP"},{numero:4,marque:"DELL"}]
-
+marquePC=["DELL","Asus","HP"];
 //GESTION Employé
 btnAddEmp.onclick=function()
 {
@@ -249,4 +315,28 @@ function updateEmp(id,login,password,mail,numPc,marquePc)
 
 //Gestion MACHINE
 
+
+btnAddPC.onclick=function()
+{
+	updateFormPC.style.display="none";
+	addFormPC.style.display="block";
+}
+
+function updatePC(id,marque,ram)
+{
+	updateFormPC.style.display="block";
+	addFormPC.style.display="none";
+
+	update_id_pc.value=id;
+	update_ram.value=ram;
+
+	var optionsSelect;
+	for(i in marquePC)
+	{
+		isSelected=(marquePC[i]==marque) ? "selected=selected" : "";
+		optionsSelect+="<option "+isSelected+" value='"+marquePC[i]+"' >"+marquePC[i]+"</option>";
+	}
+
+	update_marque.innerHTML=optionsSelect;
+}
 </script>
