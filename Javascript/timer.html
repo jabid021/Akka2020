@@ -1,0 +1,41 @@
+
+<p id="textP">OREMRZEFMSDDSCXVSFZDFWCVXGFSWDCVDSXCXDFCsdfsddfgsqdffds</p>
+<p>00:00</p>
+<script>
+
+
+
+var chrono = setInterval(changeColor,500);
+setInterval(changeText,500);
+setTimeout(stopInterval,10000);
+
+
+
+var color="green";
+
+function testAlert()
+{
+	alert("OK");
+}
+
+
+function changeColor()
+{
+
+	if(color=="green"){color="red";}
+	else{color="green";}
+	console.log(color);
+	textP.style.color=color;
+
+}
+
+function changeText()
+{
+	textP.innerHTML=color;
+}
+
+function stopInterval()
+{
+	clearInterval(chrono);
+}
+</script>
