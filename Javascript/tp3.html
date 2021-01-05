@@ -1,0 +1,50 @@
+<h1 id="timer">00:00</h1>
+<input type="button" value="play">
+<input type="button" value="pause">
+<input type="button" value="reset">
+
+
+
+<script>
+var min=0;
+var sec=0;
+var textTimer;
+var chrono;
+
+setTimeout(play,5000);
+setTimeout(pause,11000);
+setTimeout(reset,15000);
+setTimeout(play,15500);
+
+function timerCalcul()
+{
+	//Calculer time
+	sec++;
+	if(sec==60)
+	{
+		sec=0;min++;
+	}
+	textTimer=(min<10) ? "0"+min : min;
+	textTimer+=":";
+	textTimer += (sec<10) ? "0"+sec : sec;
+	timer.innerHTML=textTimer;
+}
+
+
+function play()
+{
+	chrono=setInterval(timerCalcul,1000);
+}
+
+function pause()
+{
+	clearInterval(chrono);
+}
+
+
+function reset()
+{
+	clearInterval(chrono);
+	min=0;sec=0;
+}
+</script>
