@@ -1,9 +1,15 @@
 <h1 id="timer">00:00</h1>
-<input type="button" value="play">
-<input type="button" value="pause">
-<input type="button" value="reset">
+<input id="playBtn" type="button" value="play">
+<input id="pauseBtn" type="button" value="pause">
+<input id="resetBtn" type="button" value="reset">
 
 
+<input id="login">
+
+<p id="parag">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<p style="display:none" id="textHide">TOTO est caché</p>
 
 <script>
 var min=0;
@@ -11,10 +17,10 @@ var sec=0;
 var textTimer;
 var chrono;
 
-setTimeout(play,5000);
-setTimeout(pause,11000);
-setTimeout(reset,15000);
-setTimeout(play,15500);
+
+playBtn.onclick=play;
+pauseBtn.onclick=pause;
+resetBtn.onclick=reset;
 
 function timerCalcul()
 {
@@ -28,16 +34,19 @@ function timerCalcul()
 	textTimer+=":";
 	textTimer += (sec<10) ? "0"+sec : sec;
 	timer.innerHTML=textTimer;
+
 }
 
 
 function play()
 {
+	playBtn.disabled=true;
 	chrono=setInterval(timerCalcul,1000);
 }
 
 function pause()
 {
+	playBtn.disabled=false;
 	clearInterval(chrono);
 }
 
@@ -46,5 +55,41 @@ function reset()
 {
 	clearInterval(chrono);
 	min=0;sec=0;
+	timer.innerHTML="00:00";
 }
+
+
+
+//parag.onmouseout=pause;
+
+//parag.onmouseover=function(){textHide.style.display="block";play();}
+//parag.onmouseout=function(){textHide.style.display="none";}
+/*
+parag.onmousedown=function(){console.log("mousedown");}
+parag.onmouseover=function(){console.log("mouse over");}
+parag.onmousemove=function(){console.log("mouse move");}
+parag.onmouseup=function(){console.log("mouse up");}
+parag.onmouseout=function(){console.log("mouse out");}
+//parag.onclick=function(){console.log("click");}
+parag.ondblclick=function(){console.log("dblclick");}
+*/
+
+
+parag.onclick=eventParag;
+parag.onmouseout=eventParag;
+
+function eventParag(event)
+{
+	switch(event.type)
+	{
+		case "click" : play();break;
+		case "mouseout" : pause();break;
+	}
+}
+
+
+
+login.onkeypress=function(event){console.log(event.keyCode)};
+login.onkeydown=function(){console.log("appui")};
+login.onkeyup=function(){console.log("lache")};
 </script>
