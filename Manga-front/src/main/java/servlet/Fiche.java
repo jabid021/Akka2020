@@ -23,7 +23,7 @@ public class Fiche extends HttpServlet {
 		//Param (envoyer depuis une page web) / Attributs (Gérer dans les controls et envoyés vers la page web)
 		request.setAttribute("oeuvre", e);
 		request.setAttribute("login", "Jordan");
-		this.getServletContext().getRequestDispatcher("/fiche.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/fiche.jsp").forward(request, response);
 		
 		
 	}

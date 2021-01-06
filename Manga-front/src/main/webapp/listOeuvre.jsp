@@ -33,7 +33,7 @@ List<Oeuvre> oeuvres = Context.getInstance().getDaoOeuvre().findAll();%>
 <%
 for(Oeuvre e: oeuvres)
 {
-out.println("<tr><td><img width=50 src='img/"+e.getImage()+"'></td><td>"+e.getId()+"</td><td> <a href='fiche.jsp?id="+e.getId()+"'>"+e.getLibelle()+"</a></td><td>"+e.getEditeur()+"</td></tr>");
+out.println("<tr><td><img width=50 src='img/"+e.getImage()+"'></td><td>"+e.getId()+"</td><td> <a href='fiche?id="+e.getId()+"'>"+e.getLibelle()+"</a></td><td>"+e.getEditeur()+"</td></tr>");
 }
 %>
 
