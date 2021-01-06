@@ -18,6 +18,8 @@ public class Oeuvre {
 	@Column(columnDefinition = "VARCHAR(600)")
 	private String description;
 	
+	private String image;
+	
 	@Version
 	private int version;
 	
@@ -81,12 +83,36 @@ public class Oeuvre {
 		this.description = description;
 	}
 
+	
+
+	public String getImage() {
+		return image;
+	}
+
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+
+	public int getVersion() {
+		return version;
+	}
+
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Oeuvre [id=" + id + ", libelle=" + libelle + ", editeur=" + editeur + ", description=" + description
-				+ ", version=" + version + "]";
+				+ ", image=" + image + ", version=" + version + "]";
 	}
+
+
+	
 	
 	
 }
