@@ -2,31 +2,16 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>manga-front</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>home</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>fiches</display-name>
-    <servlet-name>fiches</servlet-name>
-    <servlet-class>servlet.fiches</servlet-class>
+    <display-name>Oeuvres</display-name>
+    <servlet-name>Oeuvres</servlet-name>
+    <servlet-class>servlet.Oeuvres</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>fiches</servlet-name>
-    <url-pattern>/fiches</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Home</display-name>
-    <servlet-name>Home</servlet-name>
-    <servlet-class>servlet.Home</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Home</servlet-name>
-    <url-pattern>/Home</url-pattern>
+    <servlet-name>Oeuvres</servlet-name>
+    <url-pattern>/Oeuvres</url-pattern>
   </servlet-mapping>
 </web-app>

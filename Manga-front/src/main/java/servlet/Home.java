@@ -12,7 +12,7 @@ public class Home extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/accueil.jsp").forward(request, response);
 	}
 
 	
@@ -22,7 +22,7 @@ public class Home extends HttpServlet {
 		
 		if(login.equalsIgnoreCase("Jordan") && password.equals("ajc"))
 		{
-			this.getServletContext().getRequestDispatcher("listOeuvre.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/listOeuvre.jsp").forward(request, response);
 		}
 		else 
 		{
