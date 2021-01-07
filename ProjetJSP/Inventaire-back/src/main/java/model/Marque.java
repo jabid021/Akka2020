@@ -2,5 +2,5 @@ package model;
 
 public enum Marque {
 
-	Asus,HP,Terra;
+	Dell,Asus,HP,Terra;
 }

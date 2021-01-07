@@ -26,6 +26,14 @@ public class Compte {
 
 
 
+	public Compte(String login, String password, String mail) {
+		this.login = login;
+		this.password = password;
+		this.mail = mail;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}

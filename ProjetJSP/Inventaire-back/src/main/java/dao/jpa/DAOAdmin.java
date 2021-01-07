@@ -7,19 +7,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import config.Context;
-import dao.IDAOEmploye;
-import model.Employe;
-import model.Employe;
+import dao.IDAOAdmin;
+import model.Admin;
 
-public class DAOEmploye implements IDAOEmploye{
+public class DAOAdmin implements IDAOAdmin{
 
 	@Override
-	public Employe save(Employe t) {
+	public Admin save(Admin t) {
 		
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		try{t=em.merge(t);}
-		catch(Exception e) {System.out.println("Error save Employe");}
+		catch(Exception e) {System.out.println("Error save Admin");}
 		em.getTransaction().commit();
 		em.close();
 		return t;
@@ -27,21 +26,21 @@ public class DAOEmploye implements IDAOEmploye{
 	}
 
 	@Override
-	public void delete(Employe t) {
+	public void delete(Admin t) {
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		try{em.remove(em.merge(t));}
-		catch(Exception e) {System.out.println("Error delete Employe");}
+		catch(Exception e) {System.out.println("Error delete Admin");}
 		em.getTransaction().commit();
 		em.close();
 	}
 
 	@Override
-	public Employe findById(Integer id) {
-		Employe pc=null;
+	public Admin findById(Integer id) {
+		Admin pc=null;
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		try{em.find(Employe.class,id);}
-		catch(Exception e) {System.out.println("Error find Employe");}
+		try{em.find(Admin.class,id);}
+		catch(Exception e) {System.out.println("Error find Admin");}
 		em.getTransaction().commit();
 		
 		em.close();
@@ -49,15 +48,15 @@ public class DAOEmploye implements IDAOEmploye{
 	}
 
 	@Override
-	public List<Employe> findAll() {
-		List<Employe> employes = new ArrayList();
+	public List<Admin> findAll() {
+		List<Admin> employes = new ArrayList();
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		try 
 		{
-			Query query= em.createQuery("from Employe",Employe.class);
+			Query query= em.createQuery("from Admin",Admin.class);
 			employes=query.getResultList();
 		}
-		catch(Exception e){System.out.println("Error findAll Employe");}
+		catch(Exception e){System.out.println("Error findAll Admin");}
 		em.close();
 		return employes;
 	}

@@ -3,9 +3,11 @@ package config;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import dao.IDAOAdmin;
 import dao.IDAOCompte;
 import dao.IDAOEmploye;
 import dao.IDAOPC;
+import dao.jpa.DAOAdmin;
 import dao.jpa.DAOCompte;
 import dao.jpa.DAOEmploye;
 import dao.jpa.DAOPC;
@@ -18,6 +20,7 @@ public class Context {
 	//Factory
 	private IDAOCompte daoCompte=new DAOCompte();
 	private IDAOEmploye daoEmploye=new DAOEmploye();
+	private IDAOAdmin daoAdmin=new DAOAdmin();
 	private IDAOPC daoPC=new DAOPC();
 	
 	private Context() {}
@@ -49,6 +52,10 @@ public class Context {
 
 	public IDAOPC getDaoPC() {
 		return daoPC;
+	}
+
+	public IDAOAdmin getDaoAdmin() {
+		return daoAdmin;
 	}
 
 	

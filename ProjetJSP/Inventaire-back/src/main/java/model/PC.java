@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 @Entity
@@ -18,6 +19,8 @@ public class PC {
 	@Enumerated(EnumType.STRING)
 	private Marque marque;
 	private int RAM;
+	
+	@OneToOne(mappedBy="pc")
 	private Employe employe;
 	@Version
 	private int version;
@@ -25,10 +28,9 @@ public class PC {
 	public PC() {
 	}
 	
-	public PC(Integer id, Marque marque, int rAM) {
-		this.id = id;
+	public PC(Marque marque, int RAM) {
 		this.marque = marque;
-		RAM = rAM;
+		this.RAM = RAM;
 	}
 
 	public Integer getId() {
@@ -69,6 +71,12 @@ public class PC {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+	@Override
+	public String toString() {
+		return "PC [id=" + id + ", marque=" + marque + ", RAM=" + RAM + ", employe=" + employe + ", version=" + version
+				+ "]";
 	}
 	
 

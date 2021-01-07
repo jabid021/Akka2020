@@ -18,6 +18,7 @@ public class DAOCompte implements IDAOCompte{
 		em.getTransaction().begin();
 		try{t=em.merge(t);}
 		catch(Exception e) {System.out.println("Error save Compte");}
+		em.getTransaction().commit();
 		em.close();
 		return t;
 		
@@ -29,7 +30,7 @@ public class DAOCompte implements IDAOCompte{
 		em.getTransaction().begin();
 		try{em.remove(em.merge(t));}
 		catch(Exception e) {System.out.println("Error delete Compte");}
-		
+		em.getTransaction().commit();
 		em.close();
 	}
 
@@ -39,7 +40,7 @@ public class DAOCompte implements IDAOCompte{
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		try{em.find(Compte.class,id);}
 		catch(Exception e) {System.out.println("Error find Compte");}
-		
+		em.getTransaction().commit();
 		
 		em.close();
 		return null;

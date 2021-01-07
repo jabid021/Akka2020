@@ -8,4 +8,11 @@ import javax.persistence.Entity;
 
 public class Admin extends Compte {
 
+	public Admin(String login, String password, String mail) {
+		super(login,password,mail);
+	}
+
+	public Admin() {
+
+	}
 }

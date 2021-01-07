@@ -19,6 +19,7 @@ public class DAOPC implements IDAOPC{
 		em.getTransaction().begin();
 		try{t=em.merge(t);}
 		catch(Exception e) {System.out.println("Error save PC");}
+		em.getTransaction().commit();
 		em.close();
 		return t;
 		
@@ -30,7 +31,7 @@ public class DAOPC implements IDAOPC{
 		em.getTransaction().begin();
 		try{em.remove(em.merge(t));}
 		catch(Exception e) {System.out.println("Error delete PC");}
-		
+		em.getTransaction().commit();
 		em.close();
 	}
 
@@ -40,7 +41,7 @@ public class DAOPC implements IDAOPC{
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		try{em.find(PC.class,id);}
 		catch(Exception e) {System.out.println("Error find PC");}
-		
+		em.getTransaction().commit();
 		
 		em.close();
 		return null;
@@ -66,7 +67,7 @@ public class DAOPC implements IDAOPC{
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		try 
 		{
-			Query query= em.createQuery("from PC p where p.employe=null ",PC.class);
+			Query query= em.createQuery("Select p from PC p LEFT JOIN p.employe e where e is null ",PC.class);
 			parc=query.getResultList();
 		}
 		catch(Exception e){System.out.println("Error findAll PC");}

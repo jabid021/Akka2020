@@ -13,8 +13,10 @@ public class Employe extends Compte{
 
 	public Employe() {
 	}
-	public Employe(PC pc) {
-		this.pc = pc;
+	
+	public Employe(String login, String password, String mail,PC pc) {
+		super(login,password,mail);
+		this.pc=pc;
 	}
 
 	public PC getPc() {
