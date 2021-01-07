@@ -4,4 +4,17 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
+  <listener>
+    <listener-class>servlet.Init</listener-class>
+  </listener>
+  <servlet>
+    <description></description>
+    <display-name>Home</display-name>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>servlet.Home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/Home</url-pattern>
+  </servlet-mapping>
 </web-app>
