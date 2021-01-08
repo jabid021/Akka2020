@@ -18,6 +18,11 @@ public class Employe extends Compte{
 		super(login,password,mail);
 		this.pc=pc;
 	}
+	
+	public Employe(Integer id,String login, String password, String mail,PC pc) {
+		super(id,login,password,mail);
+		this.pc=pc;
+	}
 
 	public PC getPc() {
 		return pc;

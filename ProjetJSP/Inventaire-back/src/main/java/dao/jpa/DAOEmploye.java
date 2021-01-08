@@ -38,14 +38,13 @@ public class DAOEmploye implements IDAOEmploye{
 
 	@Override
 	public Employe findById(Integer id) {
-		Employe pc=null;
+		Employe emp=null;
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		try{em.find(Employe.class,id);}
+		try{emp=em.find(Employe.class,id);}
 		catch(Exception e) {System.out.println("Error find Employe");}
-		em.getTransaction().commit();
 		
 		em.close();
-		return null;
+		return emp;
 	}
 
 	@Override

@@ -39,12 +39,11 @@ public class DAOPC implements IDAOPC{
 	public PC findById(Integer id) {
 		PC pc=null;
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		try{em.find(PC.class,id);}
+		try{pc=em.find(PC.class,id);}
 		catch(Exception e) {System.out.println("Error find PC");}
-		em.getTransaction().commit();
 		
 		em.close();
-		return null;
+		return pc;
 	}
 
 	@Override

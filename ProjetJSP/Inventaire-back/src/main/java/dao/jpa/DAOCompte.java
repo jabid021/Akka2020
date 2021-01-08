@@ -36,14 +36,13 @@ public class DAOCompte implements IDAOCompte{
 
 	@Override
 	public Compte findById(Integer id) {
-		Compte pc=null;
+		Compte c=null;
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		try{em.find(Compte.class,id);}
+		try{c=em.find(Compte.class,id);}
 		catch(Exception e) {System.out.println("Error find Compte");}
-		em.getTransaction().commit();
 		
 		em.close();
-		return null;
+		return c;
 	}
 
 	@Override

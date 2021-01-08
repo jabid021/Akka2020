@@ -37,14 +37,14 @@ public class DAOAdmin implements IDAOAdmin{
 
 	@Override
 	public Admin findById(Integer id) {
-		Admin pc=null;
+		Admin admin=null;
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		try{em.find(Admin.class,id);}
+		try{admin=em.find(Admin.class,id);}
 		catch(Exception e) {System.out.println("Error find Admin");}
-		em.getTransaction().commit();
+		
 		
 		em.close();
-		return null;
+		return admin;
 	}
 
 	@Override

@@ -32,6 +32,12 @@ public class Compte {
 		this.mail = mail;
 	}
 
+	public Compte(Integer id,String login, String password, String mail) {
+		this.id=id;
+		this.login = login;
+		this.password = password;
+		this.mail = mail;
+	}
 
 
 	public Integer getId() {

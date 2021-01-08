@@ -1,34 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
+<%@ include file="/taglib.jsp" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Gestion Admin</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-<link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-<div id="content">
-  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="pills-emp-tab" data-toggle="pill" href="#pills-emp" role="tab" aria-controls="pills-emp" aria-selected="true">Gestion employés</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " id="pills-ordi-tab" data-toggle="pill" href="#pills-ordi" role="tab" aria-controls="pills-ordi" aria-selected="false">Gestion ordinateurs</a>
-    </li>
-  </ul>
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-emp" role="tabpanel" aria-labelledby="pills-emp-tab">
+	<div id="content">
+		<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+			<li class="nav-item"><a class="nav-link active"
+				id="pills-emp-tab" data-toggle="pill" href="#pills-emp" role="tab"
+				aria-controls="pills-emp" aria-selected="true">Gestion employés</a>
+			</li>
+			<li class="nav-item"><a class="nav-link " id="pills-ordi-tab"
+				data-toggle="pill" href="#pills-ordi" role="tab"
+				aria-controls="pills-ordi" aria-selected="false">Gestion
+					ordinateurs</a></li>
+		</ul>
+		<div class="tab-content" id="pills-tabContent">
+			<div class="tab-pane fade show active" id="pills-emp" role="tabpanel"
+				aria-labelledby="pills-emp-tab">
 
 
 
@@ -55,86 +53,95 @@
 
 
 
-      <h1>Liste des employés</h1>
-           <input id="btnAddEmp" type="button" class ="btn btn-success" value="Ajouter">
-           <table class="table table-striped">
-             <thead>
-               <tr>
-                 <th>Id</th>
-                 <th>Login</th>
-                 <th>Password</th>
-                 <th>Mail</th>
-                 <th>PC</th>
-                 <th>Actions</th>
-                 </tr>
-             </thead>
-             <tbody>
-               <tr>
-                 <td>1</td>
-                 <td>Red</td>
-                 <td>123r</td>
-                 <td>re@gmail.com</td>
-                 <td>1-DELL</td>
-                 <td>
-                   <input onclick="updateEmp(1,'Red','123r','re@gmail.com','1','DELL')" type="button" class ="btn btn-warning" value="Modifier">
-                   <input type="button" class ="btn btn-danger" value="Supprimer">
-                 </td>
-               </tr>
+				<h1>Liste des employés</h1>
+				<input id="btnAddEmp" type="button" class="btn btn-success"
+					value="Ajouter">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Login</th>
+							<th>Password</th>
+							<th>Mail</th>
+							<th>PC</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${employes}" var="emp">
 
-               <tr>
-                 <td>2</td>
-                 <td>Raul</td>
-                 <td>123ra</td>
-                 <td>Raul@gmail.com</td>
-                 <td>3-ASUS</td>
-                 <td>
-                   <input onclick="updateEmp(2,'Raul','123ra','Raul@gmail.com','3','ASUS')" type="button" class ="btn btn-warning" value="Modifier">
-                   <input type="button" class ="btn btn-danger" value="Supprimer">
-                 </td>
-               </tr>
-             </tbody>
-           </table>
+							<tr>
+								<td>${emp.id}</td>
+								<td>${emp.login}</td>
+								<td>${emp.password}</td>
+								<td>${emp.mail}</td>
+								<td>${emp.pc.id}-${emp.pc.marque}</td>
+								<td><input
+									onclick="updateEmp(${emp.id},'${emp.login}','${emp.password}','${emp.mail}',${emp.pc.id},'${emp.pc.marque}')"
+									type="button" class="btn btn-warning" value="Modifier">
+									
+									<form action="emp" method="post">
+									<input type="hidden" value="${emp.id}" name="id_emp">
+										<input type="submit" name="btnForm" class="btn btn-danger"
+									value="Supprimer"></td>
+									</form>
+									
+							</tr>
 
+						</c:forEach>
 
+					</tbody>
+				</table>
 
-      <div id="addFormEmp">
-             <h3>Ajouter nouveau Employé</h3>
-             <form action="gestionEmploye.html" method="get">
-               <label for="add_login">Login :</label> <input required id="add_login" name="login" type="text" placeholder="Saisir votre login"><br>
-               <label for="add_password">Password :</label> <input required id="add_password" name="password" type="password" placeholder="Saisir votre password"><br>
-               <label for="add_mail">Mail :</label> <input required id="add_mail" name="mail" type="email" placeholder="Saisir votre mail"><br>
-               <label for="add_pc">PC : </label>
-               <select id="add_pc" name="id_pc">
-                   <option value="choose" selected="selected">Choisir un Pc</option>
-                   <option value="2" >2-HP</option>
-                   <option value="4" >4-DELL</option>
-               </select><br>
 
-               <input class ="btn btn-success" type="submit" name="ajouter" value="Ajouter">
-             </form>
-         </div>
 
-           <div id="updateFormEmp">
-             <h3>Modifier l'employé</h3>
-             <form action="gestionEmploye.html" method="get">
+				<div id="addFormEmp">
+					<h3>Ajouter nouveau Employé</h3>
+					<form action="emp" method="post">
+						<label for="add_login">Login :</label> <input required
+							id="add_login" name="login" type="text"
+							placeholder="Saisir votre login"><br> <label
+							for="add_password">Password :</label> <input required
+							id="add_password" name="password" type="password"
+							placeholder="Saisir votre password"><br> <label
+							for="add_mail">Mail :</label> <input required id="add_mail"
+							name="mail" type="email" placeholder="Saisir votre mail"><br>
+						<label for="add_pc">PC : </label> <select id="add_pc" name="id_pc">
+							<option value="choose" selected="selected">Choisir un Pc</option>
+							<c:forEach items="${pcDispos}" var="pc">
+								<option value="${pc.id}">${pc.id}-${pc.marque}</option>
+							</c:forEach>
+						</select><br> <input name="btnForm" class="btn btn-success"
+							type="submit" value="Ajouter">
+					</form>
+				</div>
 
-             	<input type="hidden" id="update_id_emp" name="id_emp">
+				<div id="updateFormEmp">
+					<h3>Modifier l'employé</h3>
+					<form action="emp" method="post">
 
-               <label for="update_login">Login :</label> <input required id="update_login" name="login" value="red" type="text" placeholder="Saisir votre login"><br>
-               <label for="update_password">Password :</label> <input required id="update_password" name="password" type="password" placeholder="Saisir votre password"><br>
-               <label for="update_mail">Mail :</label> <input required id="update_mail" name="mail" value="re@gmail.com" type="email" placeholder="Saisir votre mail"><br>
-               <label for="update_pc">PC : </label>
-               <select id="update_pc" name="id_pc">
-                   <option value="1" selected="selected">1-DELL</option>
-                   <option value="2" >2-HP</option>
-                   <option value="4" >4-DELL</option>
-               </select><br>
+						<input type="hidden" id="update_id_emp" name="id_emp"> <label
+							for="update_login">Login :</label> <input required
+							id="update_login" name="login" value="red" type="text"
+							placeholder="Saisir votre login"><br> <label
+							for="update_password">Password :</label> <input required
+							id="update_password" name="password" type="password"
+							placeholder="Saisir votre password"><br> <label
+							for="update_mail">Mail :</label> <input required id="update_mail"
+							name="mail" value="re@gmail.com" type="email"
+							placeholder="Saisir votre mail"><br> <label
+							for="update_pc">PC : </label> <select id="update_pc" name="id_pc">
+							<option id="update_pc_selected" selected="selected"></option>
+							<c:forEach items="${pcDispos}" var="pc">
+								<option value="${pc.id}">${pc.id}-${pc.marque}</option>
+							</c:forEach>
+						</select><br> <input name="btnForm" class="btn btn-warning"
+							type="submit" value="Modifier">
+					</form>
+				</div>
 
-               <input class ="btn btn-warning" type="submit" name="modifier" value="Modifier">
-             </form>
-           </div>
+			</div>
 
-         </div>
 
 
 
@@ -184,110 +191,99 @@
 
 
 
+			<!-- Tableau gestion des machines (showAll + add + update + delete) -->
+			<div class="tab-pane fade" id="pills-ordi" role="tabpanel"
+				aria-labelledby="pills-ordi-tab">
 
-    <!-- Tableau gestion des machines (showAll + add + update + delete) -->
-    <div class="tab-pane fade" id="pills-ordi" role="tabpanel" aria-labelledby="pills-ordi-tab">
 
+				<h1>Liste des machines</h1>
+				<input id="btnAddPC" type="button" class="btn btn-success"
+					value="Ajouter">
 
-      <h1>Liste des machines</h1>
-        <input id="btnAddPC" type="button" class ="btn btn-success" value="Ajouter">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Numero</th>
+							<th>Marque</th>
+							<th>RAM</th>
+							<th>Employé</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${listePc}" var="pc">
+							<tr>
+								<td>${pc.id}</td>
+								<td>${pc.marque}</td>
+								<td>${pc.RAM}</td>
+								<c:choose>
+									<c:when test="${pc.employe==null}">
+									<td>Disponible</td>
+									</c:when>
+								<c:otherwise>
+								<td>${pc.employe.login}</td>
+								</c:otherwise>
+								</c:choose>
+								
+								<td><input
+									onclick="updatePC(${pc.id},'${pc.marque}',${pc.RAM})"
+									type="button" class="btn btn-warning" value="Modifier">
+									
+									<c:choose>
+									<c:when test="${pc.employe==null}">
+									<input name="btnForm" type="button" class="btn btn-danger"
+									value="Supprimer"></td>
+									</c:when>
+								<c:otherwise>
+								<input disabled name="btnForm" type="button" class="btn btn-danger"
+									value="Supprimer"></td>
+								</c:otherwise>
+								</c:choose>
+								
+								
+									
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Numero</th>
-            <th>Marque</th>
-            <th>RAM</th>
-            <th>Employé</th>
-            <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>DELL</td>
-            <td>16</td>
-            <td>Red</td>
-            <td>
-              <input onclick="updatePC(1,'DELL',16)" type="button" class ="btn btn-warning" value="Modifier">
-              <input type="button" class ="btn btn-danger" value="Supprimer">
-            </td>
-          </tr>
 
-          <tr>
-            <td>2</td>
-            <td>HP</td>
-            <td>12</td>
-            <td>Disponible</td>
-            <td>
-              <input onclick="updatePC(2,'HP',12)" type="button" class ="btn btn-warning" value="Modifier">
-              <input disabled type="button" class ="btn btn-danger" value="Supprimer">
-            </td>
-          </tr>
+				<div id="addFormPC">
+					<h3>Ajouter nouveau PC</h3>
+					<form action="pc" method="post">
+						<label for="add_marque">Marque : </label> <select id="add_marque"
+							name="marque">
+							<option selected="selected">Choisir une marque</option>
+							<c:forEach items="${marques}" var="marque">
+								<option value="${marque}">${marque}</option>
+							</c:forEach>
 
-          <tr>
-            <td>3</td>
-            <td>Asus</td>
-            <td>16</td>
-            <td>Raul</td>
-            <td>
-              <input onclick="updatePC(3,'Asus',16)" type="button" class ="btn btn-warning" value="Modifier">
-              <input type="button" class ="btn btn-danger" value="Supprimer">
-            </td>
-          </tr>
+						</select> <br> <label for="add_ram">RAM</label> <input value="8"
+							id="add_ram" name="ram" type="number"><br> <input
+							class="btn btn-success" type="submit" name="btnForm" value="Ajouter">
+					</form>
+				</div>
 
-          <tr>
-            <td>4</td>
-            <td>DELL</td>
-            <td>4</td>
-            <td>Disponible</td>
-            <td>
-              <input onclick="updatePC(4,'DELL',4)" type="button" class ="btn btn-warning" value="Modifier">
-              <input disabled type="button" class ="btn btn-danger" value="Supprimer">
-            </td>
-          </tr>
-        </tbody>
-      </table>
 
+				<div id="updateFormPC">
+					<h3>Modifier le PC</h3>
+					<form action="pc" method="post">
+						<input type="hidden" id="update_id_pc" name="id_pc"> <label
+							for="update_marque">Marque : </label> 
+						<select id="update_marque" name="marque">
+						
+						</select> <br> <label for="update_ram">RAM</label> <input value="16"
+							id="update_ram" name="ram" type="number"><br> <input
+							class="btn btn-warning" type="submit" name="btnForm"
+							value="Modifier">
+					</form>
+				</div>
 
-<div id="addFormPC">
-  <h3>Ajouter nouveau PC</h3>
-  <form action="gestionPc.html" method="post">
-    <label for="add_marque">Marque : </label>
-    <select id="add_marque" name="marque">
-        <option selected="selected">Choisir une marque</option>
-        <option value="DELL" >DELL</option>
-        <option value="HP" >HP</option>
-        <option value="Asus" >Asus</option>
-    </select>
-    <br>
-    <label for="add_ram">RAM</label>
-    <input value="8" id="add_ram" name="ram" type="number"><br>
-    <input class ="btn btn-success"type="submit" name="add" value="Ajouter">
-  </form>
-</div>
 
 
-<div id="updateFormPC">
-  <h3>Modifier le PC</h3>
-  <form action="gestionPc.html" method="post">
-  	<input type="hidden" id="update_id_pc" name="id_pc">
-
-    <label for="update_marque">Marque : </label>
-    <select id="update_marque" name="marque">
-    </select>
-    <br>
-    <label for="update_ram">RAM</label>
-    <input value="16" id="update_ram" name="ram"type="number"><br>
-    <input class ="btn btn-warning"type="submit" name="update" value="Modifier">
-  </form>
-</div>
-
-
-
-    </div>
-  </div>
-</div>
+			</div>
+		</div>
+	</div>
 
 
 
@@ -301,8 +297,14 @@
 <script>
 
 
-pcDispo=[{numero:2,marque:"HP"},{numero:4,marque:"DELL"}]
-marquePC=["DELL","Asus","HP"];
+
+marquePC=new Array();
+
+
+ <c:forEach items="${marques}" var="marque">
+ marquePC.push("${marque}");
+</c:forEach>
+
 //GESTION Employé
 btnAddEmp.onclick=function()
 {
@@ -319,13 +321,10 @@ function updateEmp(id,login,password,mail,numPc,marquePc)
 	update_password.value=password;
 	update_mail.value=mail;
 
-	var optionsSelect="<option selected=selected value='"+numPc+"'>"+numPc+"-"+marquePc+"</option>";
-	for(i in pcDispo)
-	{
-		optionsSelect+="<option value='"+pcDispo[i].numero+"'>"+pcDispo[i].numero+"-"+pcDispo[i].marque+"</option>";
-	}
 
-	update_pc.innerHTML=optionsSelect;
+	update_pc_selected.value=numPc;
+	update_pc_selected.innerHTML=numPc+"-"+marquePc;
+	
 	update_id_emp.value=id;
 }
 
