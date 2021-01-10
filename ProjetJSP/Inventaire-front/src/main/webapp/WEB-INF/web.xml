@@ -11,6 +11,26 @@
     </jsp-property-group>
   </jsp-config>
   <listener>
-    <listener-class>servlet.initApp</listener-class>
+    <listener-class>listener.initApp</listener-class>
   </listener>
+  <servlet>
+    <description></description>
+    <display-name>Disconnect</display-name>
+    <servlet-name>Disconnect</servlet-name>
+    <servlet-class>servlet.Disconnect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Disconnect</servlet-name>
+    <url-pattern>/Disconnect</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FilterEmp</display-name>
+    <servlet-name>FilterEmp</servlet-name>
+    <servlet-class>servlet.FilterEmp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilterEmp</servlet-name>
+    <url-pattern>/FilterEmp</url-pattern>
+  </servlet-mapping>
 </web-app>

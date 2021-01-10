@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="/taglib.jsp" %>
-	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +11,8 @@
 
 </head>
 <body>
-
+	<a id="btnDisconnect" href="disconnect"><input type="button"
+		class="btn btn-danger" value="Se deconnecter"></a>
 	<div id="content">
 		<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 			<li class="nav-item"><a class="nav-link active"
@@ -27,32 +27,9 @@
 		<div class="tab-content" id="pills-tabContent">
 			<div class="tab-pane fade show active" id="pills-emp" role="tabpanel"
 				aria-labelledby="pills-emp-tab">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+				
+				<input type="text" placeholder="Filtrer par login" id="filterName">
+				
 				<h1>Liste des employés</h1>
 				<input id="btnAddEmp" type="button" class="btn btn-success"
 					value="Ajouter">
@@ -67,7 +44,7 @@
 							<th>Actions</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="contentEmp">
 						<c:forEach items="${employes}" var="emp">
 
 							<tr>
@@ -79,13 +56,13 @@
 								<td><input
 									onclick="updateEmp(${emp.id},'${emp.login}','${emp.password}','${emp.mail}',${emp.pc.id},'${emp.pc.marque}')"
 									type="button" class="btn btn-warning" value="Modifier">
-									
-									<form action="emp" method="post">
-									<input type="hidden" value="${emp.id}" name="id_emp">
+
+									<form class="formDelete" action="emp" method="post">
+										<input type="hidden" value="${emp.id}" name="id_emp">
 										<input type="submit" name="btnForm" class="btn btn-danger"
-									value="Supprimer"></td>
-									</form>
-									
+											value="Supprimer">
+								</form>
+								</td>
 							</tr>
 
 						</c:forEach>
@@ -218,30 +195,37 @@
 								<td>${pc.RAM}</td>
 								<c:choose>
 									<c:when test="${pc.employe==null}">
-									<td>Disponible</td>
+										<td>Disponible</td>
 									</c:when>
-								<c:otherwise>
-								<td>${pc.employe.login}</td>
-								</c:otherwise>
+									<c:otherwise>
+										<td>${pc.employe.login}</td>
+									</c:otherwise>
 								</c:choose>
-								
+
 								<td><input
 									onclick="updatePC(${pc.id},'${pc.marque}',${pc.RAM})"
 									type="button" class="btn btn-warning" value="Modifier">
-									
+
 									<c:choose>
-									<c:when test="${pc.employe==null}">
-									<input name="btnForm" type="button" class="btn btn-danger"
-									value="Supprimer"></td>
-									</c:when>
+										<c:when test="${pc.employe==null}">
+											<form class="formDelete" action="pc" method="post">
+												<input type="hidden" value="${pc.id}" name="id_pc">
+												<input type="submit" name="btnForm" class="btn btn-danger"
+													value="Supprimer"></td>
+								</form>
+								</c:when>
 								<c:otherwise>
-								<input disabled name="btnForm" type="button" class="btn btn-danger"
-									value="Supprimer"></td>
+									<input disabled name="btnForm" type="button"
+										class="btn btn-danger" value="Supprimer" />
+									</td>
+
+
+
 								</c:otherwise>
 								</c:choose>
-								
-								
-									
+
+
+
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -260,7 +244,8 @@
 
 						</select> <br> <label for="add_ram">RAM</label> <input value="8"
 							id="add_ram" name="ram" type="number"><br> <input
-							class="btn btn-success" type="submit" name="btnForm" value="Ajouter">
+							class="btn btn-success" type="submit" name="btnForm"
+							value="Ajouter">
 					</form>
 				</div>
 
@@ -269,9 +254,9 @@
 					<h3>Modifier le PC</h3>
 					<form action="pc" method="post">
 						<input type="hidden" id="update_id_pc" name="id_pc"> <label
-							for="update_marque">Marque : </label> 
-						<select id="update_marque" name="marque">
-						
+							for="update_marque">Marque : </label> <select id="update_marque"
+							name="marque">
+
 						</select> <br> <label for="update_ram">RAM</label> <input value="16"
 							id="update_ram" name="ram" type="number"><br> <input
 							class="btn btn-warning" type="submit" name="btnForm"
@@ -300,7 +285,9 @@
 
 marquePC=new Array();
 
-
+<c:if test="${empty pcDispos}">
+btnAddEmp.style.display="none";
+</c:if>
  <c:forEach items="${marques}" var="marque">
  marquePC.push("${marque}");
 </c:forEach>
@@ -344,7 +331,7 @@ function updatePC(id,marque,ram)
 
 	update_id_pc.value=id;
 	update_ram.value=ram;
-
+	optionsSelect="";
 	var optionsSelect;
 	for(i in marquePC)
 	{
@@ -354,4 +341,23 @@ function updatePC(id,marque,ram)
 
 	update_marque.innerHTML=optionsSelect;
 }
+
+filterName.onkeyup=function filterEmp()
+{
+	var filter=filterName.value;
+	$.ajax("filterEmp",
+		{ 
+			type: "POST", 
+			data: 
+			{ 
+				filterName:filter
+			}, 
+			success: function (resp) 
+			{ 
+				contentEmp.innerHTML=resp;
+			} 
+		}); 
+};
+
+
 </script>

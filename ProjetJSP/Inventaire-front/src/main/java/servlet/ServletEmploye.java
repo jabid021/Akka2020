@@ -37,9 +37,6 @@ public class ServletEmploye extends HttpServlet {
 		}
 
 
-
-
-
 	}
 
 
@@ -55,7 +52,7 @@ public class ServletEmploye extends HttpServlet {
 			PC pc = Context.getInstance().getDaoPC().findById(idPC);
 			Employe e = new Employe(login, password, mail, pc);
 			Context.getInstance().getDaoEmploye().save(e);
-
+			response.sendRedirect("emp");
 		}
 		else if(tache.equals("Modifier")) 
 		{
@@ -66,16 +63,21 @@ public class ServletEmploye extends HttpServlet {
 			String mail = request.getParameter("mail");
 
 			PC pc = Context.getInstance().getDaoPC().findById(idPC);
-			Employe e = new Employe(id,login, password, mail, pc);
+			Employe e = Context.getInstance().getDaoEmploye().findById(id);
+			e.setLogin(login);
+			e.setMail(mail);
+			e.setPassword(password);
+			e.setPc(pc);
 
 			Context.getInstance().getDaoEmploye().save(e);
-			
-			System.out.println(request.getSession().getAttribute("compte"));
-			
+
 			if(request.getSession().getAttribute("compte") instanceof Employe) 
 			{
-				request.setAttribute("emp", e);
-				this.getServletContext().getRequestDispatcher("/WEB-INF/employe.jsp").forward(request, response);
+				response.sendRedirect("emp?id="+id);
+			}
+			else 
+			{
+				response.sendRedirect("emp");
 			}
 		}
 		else if(tache.equals("Supprimer")) 
@@ -84,8 +86,6 @@ public class ServletEmploye extends HttpServlet {
 
 		}
 
-		doGet(request,response);
-
 
 	}
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
@@ -93,5 +93,6 @@ public class ServletEmploye extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id_emp"));
 		Employe e = Context.getInstance().getDaoEmploye().findById(id);
 		Context.getInstance().getDaoEmploye().delete(e);
+		response.sendRedirect("emp");
 	}
 }

@@ -16,6 +16,7 @@ public class DAOPC implements IDAOPC{
 	public PC save(PC t) {
 		
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
+		
 		em.getTransaction().begin();
 		try{t=em.merge(t);}
 		catch(Exception e) {System.out.println("Error save PC");}

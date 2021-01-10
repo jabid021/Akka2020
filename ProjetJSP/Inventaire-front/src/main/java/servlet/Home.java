@@ -16,28 +16,45 @@ import model.Employe;
 @WebServlet("/home")
 public class Home extends HttpServlet {
 
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		this.getServletContext().getRequestDispatcher("/accueil.jsp").forward(request, response);
-	
+
+		//Si l'utilisateur est déjà connecté, on le redirige vers la bonne page
+		//Sinon, on affiche l'ecran de connexion
+		if(request.getSession().getAttribute("typeCompte")=="admin")
+		{
+			response.sendRedirect("emp");
+		}
+		else if(request.getSession().getAttribute("typeCompte")=="employe")
+		{
+			int idCompte=((Compte) request.getSession().getAttribute("compte")).getId();
+			response.sendRedirect("emp?id="+idCompte);
+
+		}
+		else
+		{
+			this.getServletContext().getRequestDispatcher("/accueil.jsp").forward(request, response);
+		}
+
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		String login=request.getParameter("login");
 		String password = request.getParameter("password");
 		Compte c = Context.getInstance().getDaoCompte().connect(login, password);
-		
-		request.getSession().setAttribute("compte", c);
-		
-		
+
 		if(c instanceof Admin) 
 		{
+			request.getSession().setAttribute("compte", c);
+			request.getSession().setAttribute("typeCompte", "admin");
 			response.sendRedirect("emp");
 		}
 		else if(c instanceof Employe) 
 		{
+			request.getSession().setAttribute("compte", c);
+			request.getSession().setAttribute("typeCompte", "employe");
 			response.sendRedirect("emp?id="+c.getId());
 		}
 		else 

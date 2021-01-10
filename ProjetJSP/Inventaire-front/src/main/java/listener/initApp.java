@@ -1,4 +1,4 @@
-package servlet;
+package listener;
 
 import javax.persistence.EntityManager;
 import javax.servlet.ServletContextEvent;

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="/taglib.jsp" %>
 	
 <!DOCTYPE html>
 <html>
@@ -11,6 +10,8 @@
 
 </head>
 <body>
+	<a id="btnDisconnect" href="disconnect"><input type="button" class="btn btn-danger" value="Se deconnecter"></a>
+
 				<h1>Mon profil</h1>
 				<table class="table table-striped">
 					<thead>
@@ -31,8 +32,7 @@
 								<td>${emp.mail}</td>
 								<td>${emp.pc.id}-${emp.pc.marque}</td>
 								<td><input  onclick="updateEmp()" type="button" class="btn btn-warning" value="Modifier">
-									<input type="button" name="btnForm" class="btn btn-danger"
-									value="Supprimer"></td>
+								</td>
 							</tr>
 
 					</tbody>

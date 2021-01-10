@@ -1,7 +1,6 @@
-#errorConnect
+.error
 {
   color:red;
-  display:none;
 }
 
 
@@ -26,7 +25,7 @@ body{
     margin-top:10%;
 }
 /* Bordered form */
-form {
+#connectForm {
     width:100%;
     padding: 30px;
     border: 1px solid #f1f1f1;
@@ -38,7 +37,7 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+#connectForm input[type=text], #connectForm input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -48,7 +47,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-input[type=submit] {
+#connectForm input[type=submit] {
     background-color: #53af57;
     color: white;
     padding: 14px 20px;
@@ -57,8 +56,19 @@ input[type=submit] {
     cursor: pointer;
     width: 100%;
 }
-input[type=submit]:hover {
+#connectForm input[type=submit]:hover {
     background-color: white;
     color: #53af57;
     border: 1px solid #53af57;
+}
+
+.formDelete
+{
+	display:inline-block;
+}
+
+#btnDisconnect
+{
+	position : absolute;
+	right:5%;
 }

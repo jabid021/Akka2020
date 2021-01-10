@@ -60,5 +60,20 @@ public class DAOEmploye implements IDAOEmploye{
 		em.close();
 		return employes;
 	}
+	
+	@Override
+	public List<Employe> findAllFilter(String name) {
+		List<Employe> employes = new ArrayList();
+		EntityManager em=Context.getInstance().getEmf().createEntityManager();
+		try 
+		{
+			Query query= em.createQuery("from Employe e where e.login like :filter",Employe.class);
+			query.setParameter("filter", "%"+name+"%");
+			employes=query.getResultList();
+		}
+		catch(Exception e){System.out.println("Error findAlFilter Employe");}
+		em.close();
+		return employes;
+	}
 
 }
