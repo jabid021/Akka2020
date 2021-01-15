@@ -1,5 +1,7 @@
 package entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "personne")
 @SequenceGenerator(name = "seqPersonne", sequenceName = "seq_personne", initialValue = 10, allocationSize = 1)
-public class Personne {
+public class Personne implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqPersonne")
 	private Integer id;
