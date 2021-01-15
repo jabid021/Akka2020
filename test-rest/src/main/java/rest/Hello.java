@@ -22,6 +22,8 @@ public class Hello {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String sayBye() {
+//		String s = null;
+//		s.toString();
 		return "au revoir";
 	}
 
@@ -55,6 +57,13 @@ public class Hello {
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	public Personne getPersonne() {
+		return new Personne("olivier", "gozlan");
+	}
+
+	@Path("/personne/json")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Personne getPersonneJson() {
 		return new Personne("olivier", "gozlan");
 	}
 
