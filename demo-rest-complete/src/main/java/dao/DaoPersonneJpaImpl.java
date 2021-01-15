@@ -8,8 +8,8 @@ import javax.persistence.EntityTransaction;
 import entity.Personne;
 import util.Context;
 
-public class DaoPersonneJpaImpl implements DaoPersonne {
-
+class DaoPersonneJpaImpl implements DaoPersonne {
+		
 	@Override
 	public Personne findByKey(Integer key) {
 		EntityManager em = Context.getInstance().getEntityManagerFactory().createEntityManager();
