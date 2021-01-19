@@ -1,5 +1,7 @@
 package formationSpring.bean;
 
+
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
