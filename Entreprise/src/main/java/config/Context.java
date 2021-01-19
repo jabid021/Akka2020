@@ -44,14 +44,7 @@ public class Context {
 	public IDAOEmploye getDaoEmploye() {
 		return daoEmploye;
 	}
-	public EntityManagerFactory getEmf() {
-		return emf;
-	}
 	
-	public void closeEmf() 
-	{
-		emf.close();
-	}
 	 
 
 

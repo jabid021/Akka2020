@@ -31,6 +31,6 @@ public class AppTest {
 
 		HelloClient helloClient = new HelloClient();
 		System.out.println(helloClient.sayHello());
-		helloClient.getPersonneJson();
+		helloClient.getPersonne();
 	}
 }
