@@ -11,7 +11,7 @@ import formationSpring.bean.Instrument;
 import formationSpring.bean.Musicien;
 
 @Configuration
-@ComponentScan({ "formationSpring.bean" })
+@ComponentScan({ "formationSpring.bean", "formationSpring.aspect" })
 @EnableAspectJAutoProxy
 public class AppConfig {
 

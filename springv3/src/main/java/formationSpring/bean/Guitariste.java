@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import formationSpring.aspect.MonPointCutAvecAnnotation;
+
 @Component("hendrix")
 public class Guitariste implements Musicien {
 
@@ -41,6 +43,7 @@ public class Guitariste implements Musicien {
 		this.nom = nom;
 	}
 
+	@MonPointCutAvecAnnotation
 	public void jouer() {
 		System.out.println("le guitariste joue " + instrument);
 	}
