@@ -32,8 +32,10 @@ public class Guitariste implements Musicien {
 		this.nom = nom;
 	}
 
-	public void jouer() {
+	public String jouer() {
 		System.out.println("le guitariste joue " + instrument);
+		//throw new IllegalArgumentException();
+		return "merci";
 	}
 
 }

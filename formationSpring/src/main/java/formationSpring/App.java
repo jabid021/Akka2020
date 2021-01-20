@@ -11,10 +11,8 @@ public class App {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:application-context.xml");
 		// spring est pret
 
-		Musicien musicien = ctx.getBean("guitariste", Musicien.class);
+		Musicien musicien = ctx.getBean("saxophoniste", Musicien.class);
 		musicien.jouer();
-
-		
 		// fermeture de spring
 		ctx.close();
 	}

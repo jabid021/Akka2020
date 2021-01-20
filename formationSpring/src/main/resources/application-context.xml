@@ -19,5 +19,16 @@
 			<bean class="formationSpring.bean.Saxophone"></bean>
 		</property>
 	</bean>
+	<bean id="monAspect" class="formationSpring.aspect.TestAspect"></bean>
 
+	<aop:config>
+		<aop:pointcut
+			expression="execution(* formationSpring.bean.Musicien.jouer() )"
+			id="monAspectPointCut" />
+		<aop:aspect id="aspect" ref="monAspect">
+			<aop:before method="before"
+				pointcut-ref="monAspectPointCut" />
+			<aop:after method="after" pointcut-ref="monAspectPointCut" />
+		</aop:aspect>
+	</aop:config>
 </beans>

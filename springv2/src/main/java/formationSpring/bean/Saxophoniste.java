@@ -12,8 +12,9 @@ public class Saxophoniste implements Musicien {
 		this.instrument = instrument;
 	}
 
-	public void jouer() {
+	public String jouer() {
 		System.out.println("je suis un saxophiniste " + instrument);
+		return "merci du saxophiniste";
 	}
 
 }
