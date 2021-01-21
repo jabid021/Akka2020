@@ -10,6 +10,6 @@ public class AppSpring {
 	private PersonneService personneService;
 
 	public void run(String[] args) {
-		//point d'entree
+		personneService.demo();
 	}
 }
