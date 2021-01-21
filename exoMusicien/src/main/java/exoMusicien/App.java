@@ -8,9 +8,8 @@ public class App {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-		// ctx.getBeanFactory().createBean(AppSpring.class).run(args);
-		System.out.println(ctx.getBean("pianiste"));
-		
+		ctx.getBeanFactory().createBean(AppSpring.class).run(args);
+
 		ctx.close();
 	}
 
