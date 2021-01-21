@@ -5,9 +5,13 @@ import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -17,15 +21,21 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan({ "entreprise.dao" })
 @EnableTransactionManagement
+@PropertySource("classpath:infos.properties")
 public class AppConfig {
+
+	@Value("${dataSource.url}")
+	private String url;
+	@Autowired
+	private Environment env;
 
 	@Bean
 	public BasicDataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/entreprise");
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("postgres");
+		dataSource.setDriverClassName(env.getProperty("dataSource.driver"));
+		dataSource.setUrl(env.getProperty("dataSource.url"));
+		dataSource.setUsername(env.getProperty("dataSource.username"));
+		dataSource.setPassword(env.getProperty("dataSource.password"));
 		dataSource.setMaxTotal(10);
 		dataSource.setInitialSize(5);
 		return dataSource;
@@ -43,9 +53,9 @@ public class AppConfig {
 
 	private Properties hibernateProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
-		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 		properties.setProperty("hibernate.format_sql", "true");
 		return properties;
 	}
