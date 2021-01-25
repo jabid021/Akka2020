@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "personne")
@@ -18,6 +19,8 @@ public class Personne implements Serializable {
 	private Integer id;
 	private String prenom;
 	private String nom;
+	@Version
+	private int version;
 
 	public Personne() {
 
@@ -51,6 +54,14 @@ public class Personne implements Serializable {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override

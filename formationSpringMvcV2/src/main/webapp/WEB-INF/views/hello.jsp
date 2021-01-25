@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>hello world</h1>
+	<h1>hello ${utilisateur}</h1>
 	<img alt="" src="./images/image1.jpeg">
 </body>
 </html>
