@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<h1>edition employe</h1>
-		<form:form action="save" method="get" modelAttribute="employe">
+		<form:form action="save" method="post" modelAttribute="employe">
 			<div class="form-group">
 				<form:label path="numero">id:</form:label>
 				<form:input path="numero" cssClass="form-control" readonly="true" />
@@ -63,6 +63,13 @@
 					<form:option value="">pas de manager</form:option>
 					<form:options items="${managers}" itemValue="numero"
 						itemLabel="infos" />
+				</form:select>
+			</div>
+			<div class="form-group">
+				<form:label path="departement">departement:</form:label>
+				<form:select path="departement.numero" cssClass="form-control">
+					<form:options items="${departements}" itemValue="numero"
+						itemLabel="nom" />
 				</form:select>
 			</div>
 			<div class="form-group">

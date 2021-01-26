@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import entreprise.dao.IDAODepartement;
 import entreprise.dao.IDAOEmploye;
 import entreprise.dao.IDAOOrdinateur;
 import entreprise.model.Employe;
@@ -21,6 +22,8 @@ public class EmployeController {
 	private IDAOEmploye daoEmploye;
 	@Autowired
 	private IDAOOrdinateur daoOrdinateur;
+	@Autowired
+	private IDAODepartement daoDepartement;
 
 	@GetMapping({ "", "/" })
 	public ModelAndView list() {
@@ -48,16 +51,20 @@ public class EmployeController {
 		modelAndView.addObject("employe", employe);
 		modelAndView.addObject("ordinateurs", daoOrdinateur.findAll());
 		modelAndView.addObject("managers", daoEmploye.findAll());
+		modelAndView.addObject("departements", daoDepartement.findAll());
 		return modelAndView;
 	}
 
-	@GetMapping("/save")
+	@PostMapping("/save")
 	public ModelAndView save(@ModelAttribute Employe employe) {
 		if (employe.getOrdinateur().getId() == null) {
 			employe.setOrdinateur(null);
 		}
 		if (employe.getManager().getNumero() == null) {
 			employe.setManager(null);
+		}
+		if (employe.getDepartement().getNumero() == null) {
+			employe.setDepartement(null);
 		}
 		if (employe.getNumero() == null) {
 			daoEmploye.insert(employe);
