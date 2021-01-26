@@ -26,7 +26,7 @@ public class Employe implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "empno")
-	private int numero;
+	private Integer numero;
 
 	@Column(name = "ename")
 	private String nom;
@@ -74,12 +74,24 @@ public class Employe implements Serializable {
 		this.departement = departement;
 	}
 
-	public int getNumero() {
+	public Integer getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public void setEmbauche(LocalDate embauche) {
+		this.embauche = embauche;
 	}
 
 	public String getNom() {
@@ -152,6 +164,31 @@ public class Employe implements Serializable {
 
 	public void setOrdinateur(Ordinateur ordinateur) {
 		this.ordinateur = ordinateur;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employe other = (Employe) obj;
+		if (numero == null) {
+			if (other.numero != null)
+				return false;
+		} else if (!numero.equals(other.numero))
+			return false;
+		return true;
 	}
 
 }

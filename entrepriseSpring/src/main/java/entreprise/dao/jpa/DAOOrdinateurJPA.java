@@ -10,49 +10,45 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import entreprise.dao.IDAOEmploye;
-import entreprise.model.Employe;
+import entreprise.dao.IDAOOrdinateur;
+import entreprise.model.Ordinateur;
 
 @Repository
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-public class DAOEmployeJPA implements IDAOEmploye {
+public class DAOOrdinateurJPA implements IDAOOrdinateur {
 
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
-	public Employe findById(Integer id) {
-		Employe b = em.find(Employe.class, id);
+	public Ordinateur findById(Integer id) {
+		Ordinateur b = em.find(Ordinateur.class, id);
 		return b;
 	}
 
 	@Override
-	public List<Employe> findAll() {
-		return em.createQuery("from Employe e", Employe.class).getResultList();
+	public List<Ordinateur> findAll() {
+		return em.createQuery("from Ordinateur e", Ordinateur.class).getResultList();
 	}
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
-	public void insert(Employe objet) {
+	public void insert(Ordinateur objet) {
 		em.persist(objet);
 	}
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
-	public void update(Employe objet) {
+	public void update(Ordinateur objet) {
 		em.merge(objet);
 	}
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public void delete(Integer id) {
-		Employe d = em.find(Employe.class, id);
+		Ordinateur d = em.find(Ordinateur.class, id);
 		em.remove(d);
 	}
 
-	@Override
-	public List<Employe> SelectByPoste(String poste) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }
