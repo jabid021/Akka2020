@@ -18,6 +18,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @SequenceGenerator(name = "emp")
 @Table(name = "emp")
@@ -35,6 +37,7 @@ public class Employe implements Serializable {
 	private String poste;
 
 	@Column(name = "hiredate", columnDefinition = "DATE")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate embauche;
 
 	@Column(name = "sal")
@@ -189,6 +192,10 @@ public class Employe implements Serializable {
 		} else if (!numero.equals(other.numero))
 			return false;
 		return true;
+	}
+
+	public String getInfos() {
+		return numero + " " + nom + " " + poste;
 	}
 
 }

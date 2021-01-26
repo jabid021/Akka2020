@@ -60,6 +60,10 @@ public class Ordinateur {
 		this.id = id;
 	}
 
+	public String getInfos() {
+		return id + " " + marque + " " + RAM + "gb Ram";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

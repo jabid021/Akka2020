@@ -21,12 +21,18 @@
 				<form:input path="id" cssClass="form-control" readonly="true" />
 			</div>
 			<div class="form-group">
-				<form:label path="RAM"></form:label>
+				<form:label path="marque">marque</form:label>
+				<form:select path="marque" items="${marques}"
+					cssClass="form-control">
+				</form:select>
+			</div>
+			<div class="form-group">
+				<form:label path="RAM">memoire:</form:label>
 				<form:input path="RAM" type="number" min="4" cssClass="form-control" />
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-outline-success">enregistrer</button>
-				<a href="../" class="btn btn-outline-warning">annuler</a>
+				<a href="../ordinateur" class="btn btn-outline-warning">annuler</a>
 			</div>
 		</form:form>
 	</div>

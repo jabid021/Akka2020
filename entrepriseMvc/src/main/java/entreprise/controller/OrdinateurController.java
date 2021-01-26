@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import entreprise.dao.IDAOOrdinateur;
+import entreprise.model.Marque;
 import entreprise.model.Ordinateur;
 
 @Controller
@@ -43,6 +44,7 @@ public class OrdinateurController {
 
 	private String formulaire(Ordinateur ordinateur, Model model) {
 		model.addAttribute("ordinateur", ordinateur);
+		model.addAttribute("marques", Marque.values());
 		return "ordinateur/edit";
 	}
 
