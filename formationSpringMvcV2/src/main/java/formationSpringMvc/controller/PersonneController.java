@@ -54,7 +54,7 @@ public class PersonneController {
 	private String goEdit(Personne personne, Model model) {
 		model.addAttribute("personne", personne);
 		// si on a des donnees en plus dans le model on ecrit le code 1 fois
-		return "personne/edit";
+		return "personne/editAvecSpring";
 	}
 
 }
