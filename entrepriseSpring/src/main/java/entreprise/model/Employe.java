@@ -17,8 +17,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Positive;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import entreprise.validator.Post20000101;
 
 @Entity
 @SequenceGenerator(name = "emp")
@@ -29,18 +35,22 @@ public class Employe implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "empno")
 	private Integer numero;
-	//obligaoitre
+	// obligaoitre
+	@NotEmpty
 	@Column(name = "ename")
 	private String nom;
-	//obligatoire
+	// obligatoire
+	@NotEmpty
 	@Column(name = "job")
 	private String poste;
 
-	//apres 01/01/2000
+	// apres 01/01/2000
+	@Post20000101
 	@Column(name = "hiredate", columnDefinition = "DATE")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate embauche;
-	//positif
+	// positif
+	@Positive
 	@Column(name = "sal")
 	private int salaire;
 

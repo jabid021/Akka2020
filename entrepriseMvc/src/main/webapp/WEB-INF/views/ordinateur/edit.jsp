@@ -29,6 +29,7 @@
 			<div class="form-group">
 				<form:label path="RAM">memoire:</form:label>
 				<form:input path="RAM" type="number" min="4" cssClass="form-control" />
+				<form:errors path="RAM" element="div" cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-outline-success">enregistrer</button>

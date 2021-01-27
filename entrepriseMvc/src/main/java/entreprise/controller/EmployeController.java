@@ -1,7 +1,10 @@
 package entreprise.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,7 +59,8 @@ public class EmployeController {
 	}
 
 	@PostMapping("/save")
-	public ModelAndView save(@ModelAttribute Employe employe) {
+	public ModelAndView save(@Valid @ModelAttribute("employe") Employe employe, BindingResult br) {
+
 		if (employe.getOrdinateur().getId() == null) {
 			employe.setOrdinateur(null);
 		}
@@ -65,6 +69,9 @@ public class EmployeController {
 		}
 		if (employe.getDepartement().getNumero() == null) {
 			employe.setDepartement(null);
+		}
+		if (br.hasErrors()) {
+			return goForm(employe);
 		}
 		if (employe.getNumero() == null) {
 			daoEmploye.insert(employe);

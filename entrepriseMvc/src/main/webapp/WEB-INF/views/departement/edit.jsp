@@ -23,10 +23,12 @@
 			<div class="form-group">
 				<form:label path="nom">nom:</form:label>
 				<form:input path="nom" cssClass="form-control" />
+				<form:errors path="nom" element="div" cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="lieu">lieu:</form:label>
 				<form:input path="lieu" cssClass="form-control" />
+				<form:errors path="lieu" element="div" cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-outline-success">enregistrer</button>

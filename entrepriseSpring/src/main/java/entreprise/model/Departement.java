@@ -16,6 +16,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.SequenceGenerators;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @SequenceGenerator(name = "departement", initialValue = 50, allocationSize = 10)
@@ -27,11 +28,13 @@ public class Departement implements Serializable {
 	@Column(name = "deptno")
 	private Integer numero;
 
-	//obligatoire
+	// obligatoire
+	@NotEmpty
 	@Column(name = "dname")
 	private String nom;
 
-	//obligatoire
+	// obligatoire
+	@NotEmpty
 	@Column(name = "Loc")
 	private String lieu;
 

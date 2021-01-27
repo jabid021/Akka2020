@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+import entreprise.validator.Ram;
+
 @Entity
 @SequenceGenerator(name = "seqOrdinateur")
 public class Ordinateur {
@@ -14,9 +16,9 @@ public class Ordinateur {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqOrdinateur")
 	private Integer id;
 	private Marque marque;
-	//valeur possible 4 8 16 32
+	// valeur possible 4 8 16 32
+	@Ram
 	private Integer RAM;
-
 	@OneToOne(mappedBy = "ordinateur")
 	private Employe utilisateur;
 

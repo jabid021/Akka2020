@@ -1,7 +1,10 @@
 package entreprise.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,7 +48,10 @@ public class DepartementController {
 	}
 
 	@PostMapping("/save")
-	public ModelAndView add(@ModelAttribute Departement departement) {
+	public ModelAndView add(@Valid @ModelAttribute("departement") Departement departement, BindingResult br) {
+		if (br.hasErrors()) {
+			return goEdit(departement);
+		}
 		if (departement.getNumero() == null) {
 			daoDepartement.insert(departement);
 		} else {

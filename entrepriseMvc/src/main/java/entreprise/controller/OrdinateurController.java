@@ -1,8 +1,11 @@
 package entreprise.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import entreprise.dao.IDAOOrdinateur;
 import entreprise.model.Marque;
 import entreprise.model.Ordinateur;
+import entreprise.validator.OrdinateurValidator;
 
 @Controller
 @RequestMapping("/ordinateur")
@@ -49,7 +53,11 @@ public class OrdinateurController {
 	}
 
 	@PostMapping("/save")
-	public String save(@ModelAttribute Ordinateur ordinateur) {
+	public String save(@Valid @ModelAttribute("ordinateur") Ordinateur ordinateur, BindingResult br, Model model) {
+		// new OrdinateurValidator().validate(ordinateur, br);
+		if (br.hasErrors()) {
+			return formulaire(ordinateur, model);
+		}
 		if (ordinateur.getId() == null) {
 			daoOrdinateur.insert(ordinateur);
 		} else {

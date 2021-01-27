@@ -23,18 +23,25 @@
 			<div class="form-group">
 				<form:label path="nom">nom:</form:label>
 				<form:input path="nom" cssClass="form-control" />
+				<form:errors path="nom" element="div" cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="poste">poste:</form:label>
 				<form:input path="poste" cssClass="form-control" />
+				<form:errors path="poste" element="div"
+					cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="embauche">embauche:</form:label>
 				<form:input type="date" path="embauche" cssClass="form-control" />
+				<form:errors path="embauche" element="div"
+					cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="salaire">salaire:</form:label>
 				<form:input type="number" path="salaire" cssClass="form-control" />
+				<form:errors path="salaire" element="div"
+					cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="adresse.numero">numero de l'adresse:</form:label>
