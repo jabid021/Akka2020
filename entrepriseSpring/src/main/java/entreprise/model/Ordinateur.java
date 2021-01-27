@@ -14,6 +14,7 @@ public class Ordinateur {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqOrdinateur")
 	private Integer id;
 	private Marque marque;
+	//valeur possible 4 8 16 32
 	private Integer RAM;
 
 	@OneToOne(mappedBy = "ordinateur")

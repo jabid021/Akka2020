@@ -27,9 +27,11 @@ public class Departement implements Serializable {
 	@Column(name = "deptno")
 	private Integer numero;
 
+	//obligatoire
 	@Column(name = "dname")
 	private String nom;
 
+	//obligatoire
 	@Column(name = "Loc")
 	private String lieu;
 

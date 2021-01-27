@@ -29,17 +29,18 @@ public class Employe implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "empno")
 	private Integer numero;
-
+	//obligaoitre
 	@Column(name = "ename")
 	private String nom;
-
+	//obligatoire
 	@Column(name = "job")
 	private String poste;
 
+	//apres 01/01/2000
 	@Column(name = "hiredate", columnDefinition = "DATE")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate embauche;
-
+	//positif
 	@Column(name = "sal")
 	private int salaire;
 
