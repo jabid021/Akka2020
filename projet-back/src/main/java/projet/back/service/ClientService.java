@@ -22,7 +22,13 @@ public class ClientService {
 	@Autowired
 	private AdresseService adresseService;
 
-	public void creation(Client client) {
+	public void creation(Client client) throws ClientException {
+		if(client.getPrenom()==null) {
+			throw new ClientException("prenom obligatoire");
+		}
+		if(client.getNom()==null) {
+			throw new ClientException("nom obligatoire");
+		}
 		clientRepo.save(client);
 	}
 

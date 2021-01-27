@@ -1,8 +1,15 @@
 package formationSpringMvc.controller;
 
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Valid;
+import javax.validation.Validator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +25,19 @@ public class PersonneController {
 
 	@Autowired
 	private DaoPersonne daoPersonne;
+	@Autowired
+	private Validator validator;
 
 	@GetMapping("")
 	public String list(Model model) {
 		model.addAttribute("personnes", daoPersonne.findAll());
+		Personne p = new Personne();
+		Set<ConstraintViolation<Personne>> violations = validator.validate(p);
+		if (violations.isEmpty()) {
+			System.out.println(p);
+		} else {
+			System.out.println("erreur de validation:\n" + violations);
+		}
 		return "personne/list";
 	}
 
@@ -32,7 +48,10 @@ public class PersonneController {
 	}
 
 	@PostMapping("/save")
-	public String save(@ModelAttribute Personne personne) {
+	public String save(@Valid @ModelAttribute("personne") Personne personne, BindingResult br, Model model) {
+		if (br.hasErrors()) {
+			return goEdit(personne, model);
+		}
 		if (personne.getId() == null) {
 			daoPersonne.insert(personne);
 		} else {

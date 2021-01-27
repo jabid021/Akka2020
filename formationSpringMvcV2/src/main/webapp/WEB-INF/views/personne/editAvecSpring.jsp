@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="container">
-	<h1>edition avec spring</h1>
+		<h1>edition avec spring</h1>
 		<form:form method="post" action="save" modelAttribute="personne">
 			<form:hidden path="version" />
 			<div class="form-group">
@@ -24,10 +24,15 @@
 			<div class="form-group">
 				<form:label path="prenom">prenom:</form:label>
 				<form:input path="prenom" cssClass="form-control" />
+				<form:errors path="prenom" element="div"
+					cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="nom">nom:</form:label>
 				<form:input path="nom" cssClass="form-control" />
+				<form:errors path="nom">
+					<div class="alert alert-danger">message dans vue</div>
+				</form:errors>
 			</div>
 
 			<div class="form-group">

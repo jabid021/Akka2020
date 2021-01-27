@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "personne")
@@ -17,7 +18,9 @@ public class Personne implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqPersonne")
 	private Integer id;
+	@NotEmpty(message = "prenom obligatoire")
 	private String prenom;
+	@NotEmpty
 	private String nom;
 	@Version
 	private int version;
