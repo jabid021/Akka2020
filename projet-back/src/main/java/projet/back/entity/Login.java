@@ -11,6 +11,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "login")
@@ -20,8 +23,10 @@ public class Login {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqLogin")
 	@Column(name = "login_id")
 	private Long id;
+	@NotEmpty
 	@Column(name = "login", length = 150, nullable = false, unique = true)
 	private String login;
+	@Length(min = 6)
 	@Column(name = "password", length = 200, nullable = false)
 	private String password;
 	@Enumerated(EnumType.STRING)

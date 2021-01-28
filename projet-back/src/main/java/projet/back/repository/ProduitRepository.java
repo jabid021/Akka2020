@@ -14,7 +14,7 @@ public interface ProduitRepository extends JpaRepository<Produit, Long> {
 	public Optional<Produit> findProduitByIdWithLigneCommande(@Param("id") Long id);
 
 	@Query("select distinct p from Produit p left join fetch p.categorie where p.categorie.id=:id")
-	public List<Produit> findProduitByCategorie(Long id);
+	public List<Produit> findProduitByCategorie(@Param("id") Long id);
 
 	public List<Produit> findByNomContaining(String nom);
 }

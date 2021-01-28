@@ -12,6 +12,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Table(name = "ligne_commande")
@@ -22,6 +23,7 @@ public class LigneCommande {
 	@Column(name = "ligne_commande_id")
 	private Long id;
 	@Column(name = "ligne_commande_quantite", nullable = false)
+	@Positive
 	private Integer quantite;
 	@Transient
 	private Double montant;

@@ -46,6 +46,14 @@ public class CategorieService {
 		throw new CategorieException("id inconnu");
 	}
 
+	public Categorie consultationAvecDetails(Long id) throws CategorieException {
+		Optional<Categorie> opt = categorieRepo.findCustomByIdWithProduitAndCategorieMereAndSousCategorie(id);
+		if (opt.isPresent()) {
+			return opt.get();
+		}
+		throw new CategorieException("id inconnu");
+	}
+
 	public List<Categorie> consultation() {
 		return categorieRepo.findAll();
 	}

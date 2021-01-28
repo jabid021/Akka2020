@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "categorie")
@@ -23,9 +26,11 @@ public class Categorie {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCategorie")
 	@Column(name = "categorie_id")
 	private Long id;
+	@NotEmpty
 	@Column(name = "categorie_nom", length = 250, nullable = false)
 	private String nom;
 	@Lob
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "categorie_description")
 	private String description;
 	@Version
@@ -134,6 +139,10 @@ public class Categorie {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getInfos() {
+		return "id:" + id + ", nom:" + nom;
 	}
 
 }

@@ -16,6 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "client")
@@ -25,14 +27,17 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
 	@Column(name = "client_id")
 	private Long id;
+	@NotEmpty
 	@Column(name = "client_prenom", length = 200, nullable = false)
 	private String prenom;
+	@NotEmpty
 	@Column(name = "client_nom", length = 200, nullable = false)
 	private String nom;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "client_civilite")
 	private Civilte civilte;
 	@Column(name = "client_email", length = 200, unique = true)
+	@Email
 	private String email;
 	@OneToOne
 	@JoinColumn(name = "client_login_id", foreignKey = @ForeignKey(name = "client_login_fk"))
