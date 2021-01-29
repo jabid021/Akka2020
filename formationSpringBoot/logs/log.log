@@ -1188,3 +1188,34 @@ org.hibernate.StaleObjectStateException: Row was updated or deleted by another t
 2021-01-29 13:40:14.049  WARN 70904 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m52s59ms).
 2021-01-29 13:53:58.723  WARN 70904 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m14s646ms).
 2021-01-29 13:56:07.493  WARN 70904 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m38s737ms).
+2021-01-29 14:27:32.240  INFO 70904 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-01-29 14:27:32.500  INFO 70904 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-29 14:27:32.504  INFO 70904 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-29 14:27:32.520  INFO 70904 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-29 14:27:32.665  INFO 70904 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-29 14:45:43.741  INFO 72571 --- [main] f.a.f.FormationSpringBootApplication     : Starting FormationSpringBootApplication using Java 1.8.0_31 on macOlivier with PID 72571 (/Users/olivier/Documents/akka20200113git.nosync/Akka2020/formationSpringBoot/target/classes started by olivier in /Users/olivier/Documents/akka20200113git.nosync/Akka2020/formationSpringBoot)
+2021-01-29 14:45:43.749  INFO 72571 --- [main] f.a.f.FormationSpringBootApplication     : No active profile set, falling back to default profiles: default
+2021-01-29 14:45:44.711  INFO 72571 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-01-29 14:45:44.781  INFO 72571 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interfaces.
+2021-01-29 14:45:45.451  INFO 72571 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-29 14:45:45.461  INFO 72571 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-29 14:45:45.461  INFO 72571 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-29 14:45:45.778  INFO 72571 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-01-29 14:45:45.782  INFO 72571 --- [main] o.a.c.c.C.[.[localhost].[/monsite]       : Initializing Spring embedded WebApplicationContext
+2021-01-29 14:45:45.783  INFO 72571 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1943 ms
+2021-01-29 14:45:45.976  INFO 72571 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-29 14:45:46.075  INFO 72571 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-01-29 14:45:46.339  INFO 72571 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-29 14:45:46.455  INFO 72571 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-29 14:45:46.562  INFO 72571 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-29 14:45:46.590  INFO 72571 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-01-29 14:45:47.341  INFO 72571 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-29 14:45:47.350  INFO 72571 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-29 14:45:47.974  WARN 72571 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-29 14:45:48.128  INFO 72571 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-29 14:45:48.236  INFO 72571 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-01-29 14:45:48.866  INFO 72571 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/monsite'
+2021-01-29 14:45:48.946  INFO 72571 --- [main] f.a.f.FormationSpringBootApplication     : Started FormationSpringBootApplication in 5.714 seconds (JVM running for 6.485)
+2021-01-29 14:46:00.899  INFO 72571 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/monsite]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-29 14:46:00.900  INFO 72571 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-29 14:46:00.903  INFO 72571 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
