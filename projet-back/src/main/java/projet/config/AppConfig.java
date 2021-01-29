@@ -1,4 +1,4 @@
-package formationSpringJpa.config;
+package projet.config;
 
 import java.util.Properties;
 

@@ -2,7 +2,7 @@ package projet.back;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import formationSpringJpa.config.AppConfig;
+import projet.config.AppConfig;
 
 public class App {
 	public static void main(String[] args) {

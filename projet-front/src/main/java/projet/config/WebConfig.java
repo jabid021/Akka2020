@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
-import formationSpringJpa.config.AppConfig;
+import projet.config.AppConfig;
 
 @Configuration
 @ComponentScan({ "projet.controller" })
