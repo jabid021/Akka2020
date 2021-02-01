@@ -1940,3 +1940,8 @@ org.apache.jasper.JasperException: /WEB-INF/views/logout.jsp (line: [6], column:
 2021-02-01 10:54:51.032  INFO 10837 --- [http-nio-8080-exec-1] f.a.f.controller.AllUserController       : methode page1
 2021-02-01 10:55:35.564  INFO 10837 --- [http-nio-8080-exec-8] f.a.f.controller.AllUserController       : methode page1
 2021-02-01 10:55:52.829  INFO 10837 --- [http-nio-8080-exec-5] f.a.f.controller.AllUserController       : methode page1
+2021-02-01 11:24:18.633  INFO 10837 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-02-01 11:24:18.751  INFO 10837 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01 11:24:18.770  INFO 10837 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-02-01 11:24:18.812  INFO 10837 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-01 11:24:19.190  INFO 10837 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

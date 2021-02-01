@@ -8,6 +8,7 @@ class EntrepriseBootApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

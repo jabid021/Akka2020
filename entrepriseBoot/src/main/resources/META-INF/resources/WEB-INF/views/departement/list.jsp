@@ -14,6 +14,7 @@
 </head>
 <body>
 	<div class="container">
+		<jsp:include page="../logout.jsp"></jsp:include>
 		<h1>liste des departements</h1>
 		<table class="table">
 			<tr>

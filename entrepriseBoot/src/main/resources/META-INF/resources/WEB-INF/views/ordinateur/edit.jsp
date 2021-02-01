@@ -14,6 +14,7 @@
 </head>
 <body>
 	<div class="container">
+		<jsp:include page="../logout.jsp"></jsp:include>
 		<h1>edition ordinateur</h1>
 		<form:form action="save" method="post" modelAttribute="ordinateur">
 			<div class="form-group">
