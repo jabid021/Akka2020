@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<jsp:include page="../logout.jsp"></jsp:include>
-		<h1>page1</h1>
+		<h1>page d'acceuil pour user authentifies</h1>
 	</div>
 </body>
 </html>
