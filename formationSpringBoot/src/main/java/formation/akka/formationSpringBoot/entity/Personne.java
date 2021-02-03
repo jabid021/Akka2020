@@ -8,22 +8,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name = "personne")
 @SequenceGenerator(name = "seqPersonne", sequenceName = "seq_personne", initialValue = 10, allocationSize = 1)
 public class Personne implements Serializable {
+	@JsonView(Vue.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqPersonne")
 	private Integer id;
+	@JsonView(Vue.Common.class)
 	@NotEmpty(message = "prenom obligatoire")
 	private String prenom;
+	@JsonView(Vue.Common.class)
 	@NotEmpty
+	// @JsonIgnore
 	private String nom;
+	// @JsonIgnore
 	@Version
 	private int version;
+	@Transient
+	@JsonView(Vue.PersonneWithAdresse.class)
+	private Adresse adresse;
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 
 	public Personne() {
 

@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,10 +34,12 @@
 					<td>${p.id}</td>
 					<td>${p.prenom}</td>
 					<td>${p.nom}</td>
-					<td><a href="./personne/edit?id=${p.id}"
-						class="btn btn-outline-primary"><spring:message code="edit"></spring:message></a></td>
-					<td><a href="./personne/delete?id=${p.id}"
-						class="btn btn-outline-danger"><spring:message code="delete"></spring:message></a></td>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<td><a href="./personne/edit?id=${p.id}"
+							class="btn btn-outline-primary"><spring:message code="edit"></spring:message></a></td>
+						<td><a href="./personne/delete?id=${p.id}"
+							class="btn btn-outline-danger"><spring:message code="delete"></spring:message></a></td>
+					</sec:authorize>
 				</tr>
 			</c:forEach>
 		</table>
