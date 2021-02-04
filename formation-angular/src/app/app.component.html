@@ -1,0 +1,11 @@
+<h1>bienvenu sur le site: {{ title }}</h1>
+<div>Bonjour {{ client.prenom }} {{ client.nom }}</div>
+<div [style.color]="couleur">
+  prenom:<input [(ngModel)]="client.prenom" /><br />
+  nom:<select [(ngModel)]="client.nom">
+    <option [value]="inconnu">inconnu</option>
+    <option value="gozlan">gozlan</option></select
+  ><br />
+  <button (click)="bouton()">clique ici</button> {{ message }}
+</div>
+
