@@ -4,3 +4,7 @@ target/
 .settings/
 .DS_Store
 DecouverteJPA/src/main/resources/META-INF/persistence.xml
+/.metadata/
+/.recommenders/
+Servers
+node_modules/
