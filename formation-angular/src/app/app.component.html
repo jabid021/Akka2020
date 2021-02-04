@@ -8,3 +8,13 @@
   <p [style.color]="couleur">du blabla en couleur</p>
   <div *ngIf="couleur === 'red'">rouge selectionne</div>
 </div>
+
+<div>
+  <div>
+    nom:<input [(ngModel)]="produit.nom" /><br />
+    prix<input [(ngModel)]="produit.prix" />
+  </div>
+  <p *ngIf="visible()" [ngClass]="{ rouge: produit.prix < 0 }">
+    produit saisi:{{ produit.nom }} {{ produit.prix }}
+  </p>
+</div>
