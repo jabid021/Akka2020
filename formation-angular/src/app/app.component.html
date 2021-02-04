@@ -1,11 +1,10 @@
-<h1>bienvenu sur le site: {{ title }}</h1>
-<div>Bonjour {{ client.prenom }} {{ client.nom }}</div>
-<div [style.color]="couleur">
-  prenom:<input [(ngModel)]="client.prenom" /><br />
-  nom:<select [(ngModel)]="client.nom">
-    <option [value]="inconnu">inconnu</option>
-    <option value="gozlan">gozlan</option></select
-  ><br />
-  <button (click)="bouton()">clique ici</button> {{ message }}
+<div>
+  <select [(ngModel)]="couleur">
+    <option value="black">noire</option>
+    <option value="red">rouge</option>
+    <option value="green">vert</option>
+    <option value="blue">bleu</option>
+  </select>
+  <p [style.color]="couleur">du blabla en couleur</p>
+  <div *ngIf="couleur === 'red'">rouge selectionne</div>
 </div>
-
