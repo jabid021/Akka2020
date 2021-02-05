@@ -29,4 +29,8 @@ export class AppComponent {
       this.nombreTop = input.nbreCommande;
     }
   }
+
+  public recuperationProduit(produit: Produit) {
+    this.produit = produit;
+  }
 }

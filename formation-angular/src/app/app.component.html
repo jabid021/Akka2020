@@ -6,20 +6,11 @@
   <h2>
     le produit le plus commandé:{{ nomTop }} avec {{ nombreTop }} commandes
   </h2>
+  <saisie-produit
+    (produitEnregistre)="recuperationProduit($event)"
+  ></saisie-produit>
   <display-produit
-    [produit]="produitFactory('tele', 500)"
-    (commande)="gestionCommande($event)"
-  ></display-produit>
-  <display-produit
-    [produit]="produitFactory('iphone', 5000)"
-    (commande)="gestionCommande($event)"
-  ></display-produit>
-  <display-produit
-    [produit]="produitFactory('micronde', 200)"
-    (commande)="gestionCommande($event)"
-  ></display-produit>
-  <display-produit
-    [produit]="produitFactory('velo', 300)"
+    [produit]="produit"
     (commande)="gestionCommande($event)"
   ></display-produit>
 </div>

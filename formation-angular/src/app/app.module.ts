@@ -9,6 +9,7 @@ import { BoldElementComponent } from './bold-element/bold-element.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { DisplayProduitComponent } from './display-produit/display-produit.component';
 import { Produit } from 'src/model/produit';
+import { SaisieProduitComponent } from './saisie-produit/saisie-produit.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { Produit } from 'src/model/produit';
     BoldElementComponent,
     TooltipComponent,
     DisplayProduitComponent,
+    SaisieProduitComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
