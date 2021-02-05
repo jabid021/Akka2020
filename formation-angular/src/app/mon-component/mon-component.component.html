@@ -1,0 +1,15 @@
+<app-titre
+  [titre]="variableDansMonComponent"
+  couleur="red"
+  (evenementDeclencheParLeComponentTitre)="
+    traitementDeLevenementDeTitre($event)
+  "
+></app-titre>
+
+<p>
+  mon-component works!:message recu:{{ recupEvent.nom }} {{ recupEvent.prix }}
+</p>
+<button (click)="click()">bouton</button>
+<div app-titre-attribut titre="la meme avec un attribut">
+  des trucs dans la div
+</div>

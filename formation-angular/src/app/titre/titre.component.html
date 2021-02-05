@@ -1,0 +1,7 @@
+<div style="background-color: blueviolet">
+  <h1 [style.color]="color">{{ titre }}</h1>
+  <ng-content></ng-content>
+  <button (click)="declenchementDeLEventEmitter()">
+    declenchement evenement
+  </button>
+</div>
