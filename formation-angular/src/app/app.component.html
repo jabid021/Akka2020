@@ -1,1 +1,25 @@
-<mon-component></mon-component>
+<asc-bold-element prefix="voici le nom" text="tele"></asc-bold-element>
+<asc-tooltip asc-tooltip-titre="et voila un tooltip!">
+  voila un message</asc-tooltip
+>
+<div>
+  <h2>
+    le produit le plus commandé:{{ nomTop }} avec {{ nombreTop }} commandes
+  </h2>
+  <display-produit
+    [produit]="produitFactory('tele', 500)"
+    (commande)="gestionCommande($event)"
+  ></display-produit>
+  <display-produit
+    [produit]="produitFactory('iphone', 5000)"
+    (commande)="gestionCommande($event)"
+  ></display-produit>
+  <display-produit
+    [produit]="produitFactory('micronde', 200)"
+    (commande)="gestionCommande($event)"
+  ></display-produit>
+  <display-produit
+    [produit]="produitFactory('velo', 300)"
+    (commande)="gestionCommande($event)"
+  ></display-produit>
+</div>
