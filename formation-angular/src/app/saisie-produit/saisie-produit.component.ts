@@ -16,5 +16,6 @@ export class SaisieProduitComponent implements OnInit {
 
   public save() {
     this.produitEnregistre.emit(this.produit);
+    this.produit = new Produit();
   }
 }

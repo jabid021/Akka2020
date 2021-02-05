@@ -7,14 +7,29 @@ import { Produit } from 'src/model/produit';
   styleUrls: ['./test-ng-for.component.css'],
 })
 export class TestNgForComponent implements OnInit {
-  produits: Produit[] = [
-    new Produit('tele', 1000),
-    new Produit('velo', 200),
-    new Produit('velo', 200),
-    new Produit('velo', 200),
-  ];
+  produits: Produit[] = [];
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  public info(p: Produit): string {
+    let message: string = '';
+    if (p.prix < 0) {
+      message = 'Negatif';
+    } else if (p.prix == 0) {
+      message = 'Neutre';
+    } else {
+      message = 'Positif';
+    }
+    return message;
+  }
+
+  public ajout(p: Produit) {
+    this.produits.push(p);
+  }
+
+  public delete(index: number) {
+    this.produits.splice(index, 1);
+  }
 }
