@@ -1,0 +1,18 @@
+<table>
+  <tr
+    *ngFor="
+      let p of produits;
+      let i = index;
+      let o = odd;
+      let e = even;
+      let f = first;
+      let l = last
+    "
+  >
+    <td>{{ i }}</td>
+    <td>{{ p.nom }}</td>
+    <td>{{ p.prix }}</td>
+    <td>{{ o }}</td>
+    <td>{{ e }}</td>
+  </tr>
+</table>

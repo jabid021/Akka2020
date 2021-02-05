@@ -1,4 +1,11 @@
 <div>
   {{ produit.nom }} {{ produit.prix }}
+  <div *ngIf="produit.prix >= 0; else prixNegatif">
+    <p>prix positif</p>
+  </div>
   <button (click)="commander()">commander</button>
 </div>
+
+<ng-template #prixNegatif>
+  <p>prix negatif</p>
+</ng-template>

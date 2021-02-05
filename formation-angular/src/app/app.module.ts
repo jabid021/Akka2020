@@ -10,6 +10,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { DisplayProduitComponent } from './display-produit/display-produit.component';
 import { Produit } from 'src/model/produit';
 import { SaisieProduitComponent } from './saisie-produit/saisie-produit.component';
+import { TestNgForComponent } from './test-ng-for/test-ng-for.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SaisieProduitComponent } from './saisie-produit/saisie-produit.componen
     TooltipComponent,
     DisplayProduitComponent,
     SaisieProduitComponent,
+    TestNgForComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
