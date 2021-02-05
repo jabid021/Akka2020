@@ -1,7 +1,7 @@
 <table>
   <tr *ngFor="let p of produits; let i = index">
-    <td>{{ p.nom }}</td>
-    <td>{{ p.prix }}</td>
+    <td surligner>{{ p.nom }}</td>
+    <td surligner couleur="red">{{ p.prix }}</td>
     <td>
       {{ info(p) }}
     </td>

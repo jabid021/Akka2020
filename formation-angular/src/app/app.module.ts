@@ -11,6 +11,7 @@ import { DisplayProduitComponent } from './display-produit/display-produit.compo
 import { Produit } from 'src/model/produit';
 import { SaisieProduitComponent } from './saisie-produit/saisie-produit.component';
 import { TestNgForComponent } from './test-ng-for/test-ng-for.component';
+import { SurlignerDirective } from './surligner.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TestNgForComponent } from './test-ng-for/test-ng-for.component';
     DisplayProduitComponent,
     SaisieProduitComponent,
     TestNgForComponent,
+    SurlignerDirective,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
