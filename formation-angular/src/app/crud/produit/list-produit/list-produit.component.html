@@ -8,17 +8,10 @@
     <th></th>
     <th></th>
   </tr>
-  <tr *ngFor="let p of produits; let index = index">
-    <td>{{ p.nom }}</td>
-    <td>{{ p.prix }}</td>
-    <td>
-      <button
-        [routerLink]="['/produit', 'edit', index]"
-        routerLinkActive="active"
-      >
-        editer
-      </button>
-    </td>
-    <td><button (click)="delete(index)">supprimer</button></td>
-  </tr>
+  <tr
+    produit-row
+    [produit]="p"
+    [index]="index"
+    *ngFor="let p of produits; let index = index"
+  ></tr>
 </table>
