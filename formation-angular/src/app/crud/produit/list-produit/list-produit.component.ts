@@ -1,3 +1,5 @@
+import { FakeService } from './../../../service/fake.service';
+import { ExempleService } from './../../../service/exemple.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { produits } from './../../../produits';
 import { Produit } from './../../../../model/produit';
@@ -7,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-list-produit',
   templateUrl: './list-produit.component.html',
   styleUrls: ['./list-produit.component.css'],
+  providers: [{ provide: ExempleService, useClass: FakeService }],
 })
 export class ListProduitComponent implements OnInit {
   private _produits: Produit[] = produits;
 
-  constructor() {}
+  constructor(private monService: ExempleService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.monService.methodeDuService();
+  }
 
   /**
    * Getter produits

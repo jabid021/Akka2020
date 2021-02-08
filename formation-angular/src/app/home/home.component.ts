@@ -1,3 +1,4 @@
+import { ExempleService } from './../service/exemple.service';
 import { Produit } from './../../model/produit';
 import { produits } from './../produits';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,14 +14,20 @@ export class HomeComponent implements OnInit {
   prenom: string = '';
   tabProduit: Produit[] = produits;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(
+    private monService: ExempleService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.error = params.error;
     });
     this.tabProduit.push(new Produit('pc', 500));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.monService.methodeDuService();
+  }
 
   envoyer() {
     if (this.prenom) {

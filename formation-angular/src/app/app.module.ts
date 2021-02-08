@@ -1,3 +1,4 @@
+import { ExempleService } from './service/exemple.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -20,6 +21,7 @@ import { BonjourComponent } from './bonjour/bonjour.component';
 import { ListProduitComponent } from './crud/produit/list-produit/list-produit.component';
 import { EditProduitComponent } from './crud/produit/edit-produit/edit-produit.component';
 import { ProduitRowComponent } from './crud/produit/produit-row/produit-row.component';
+import { DoublePipe } from './double.pipe';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,10 @@ import { ProduitRowComponent } from './crud/produit/produit-row/produit-row.comp
     ListProduitComponent,
     EditProduitComponent,
     ProduitRowComponent,
+    DoublePipe,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
-  providers: [],
+  providers: [ExempleService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
