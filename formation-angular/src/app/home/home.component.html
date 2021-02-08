@@ -6,4 +6,12 @@
       envoyer
     </button>
   </div>
+  <div>
+    <table>
+      <tr *ngFor="let p of tabProduit">
+        <td>{{ p.nom }}</td>
+        <td>{{ p.prix }}</td>
+      </tr>
+    </table>
+  </div>
 </div>

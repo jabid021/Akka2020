@@ -1,3 +1,5 @@
+import { Produit } from './../../model/produit';
+import { produits } from './../produits';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,11 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   error: string = '';
   prenom: string = '';
+  tabProduit: Produit[] = produits;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.error = params.error;
     });
+    this.tabProduit.push(new Produit('pc', 500));
   }
 
   ngOnInit(): void {}
