@@ -12,6 +12,11 @@ import { Produit } from 'src/model/produit';
 import { SaisieProduitComponent } from './saisie-produit/saisie-produit.component';
 import { TestNgForComponent } from './test-ng-for/test-ng-for.component';
 import { SurlignerDirective } from './surligner.directive';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+import { routes } from './routes';
+import { Page1PublicComponent } from './page1-public/page1-public.component';
+import { BonjourComponent } from './bonjour/bonjour.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +29,11 @@ import { SurlignerDirective } from './surligner.directive';
     SaisieProduitComponent,
     TestNgForComponent,
     SurlignerDirective,
+    HomeComponent,
+    Page1PublicComponent,
+    BonjourComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent],
 })

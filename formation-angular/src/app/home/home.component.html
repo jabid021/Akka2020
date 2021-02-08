@@ -1,0 +1,9 @@
+<div>
+  <h1>mon site angular</h1>
+  <div *ngIf="error">prenom obligatoire</div>
+  <div>
+    votre prenom:<input [(ngModel)]="prenom" /><button (click)="envoyer()">
+      envoyer
+    </button>
+  </div>
+</div>

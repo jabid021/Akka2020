@@ -1,1 +1,18 @@
-<test-ng-for></test-ng-for>
+<div>
+  menu
+  <a [routerLink]="['/home']" routerLinkActive="active">home</a>
+  <a
+    [routerLink]="['/home']"
+    [queryParams]="{ param1: 'hello' }"
+    routerLinkActive="active"
+    >home avec qureyParams</a
+  >
+  <a [routerLink]="['/for']" routerLinkActive="active">test-ng-for</a>
+  <a [routerLink]="['/public', 'home']" routerLinkActive="active"
+    >page1 public</a
+  ><a [routerLink]="['/bonjour', 'olivier']" routerLinkActive="active"
+    >bonjour</a
+  >
+</div>
+<router-outlet></router-outlet>
+<div>footer (component)</div>
