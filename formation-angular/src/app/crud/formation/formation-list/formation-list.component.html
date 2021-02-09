@@ -1,0 +1,20 @@
+<table>
+  <tr *ngFor="let f of formations">
+    <td>{{ f.id }}</td>
+    <td>{{ f.nom }}</td>
+    <td>{{ f.duree }}</td>
+    <td>
+      <button
+        [routerLink]="['/formation', 'edit', f.id]"
+        routerLinkActive="active"
+      >
+        editer
+      </button>
+    </td>
+    <td><button (click)="delete(f.id)">supprimer</button></td>
+  </tr>
+</table>
+
+<button [routerLink]="['/formation', 'edit']" routerLinkActive="active">
+  ajouter
+</button>

@@ -1,0 +1,11 @@
+<div>
+  <div>id:<input [ngModel]="formation.id" readonly /></div>
+  <div>nom:<input [(ngModel)]="formation.nom" /></div>
+  <div>duree:<input [(ngModel)]="formation.duree" /></div>
+  <div>
+    <button (click)="save()">enregistrer</button>
+    <button [routerLink]="['/formation']" routerLinkActive="active">
+      retour
+    </button>
+  </div>
+</div>

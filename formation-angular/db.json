@@ -11,9 +11,19 @@
       "duree": 5
     },
     {
-      "nom": "javascript",
+      "nom": "javascriptssss",
       "duree": 3,
       "id": 3
+    },
+    {
+      "nom": "eee",
+      "duree": "22",
+      "id": 4
+    },
+    {
+      "nom": "uuu",
+      "duree": "33",
+      "id": 5
     }
   ],
   "formateur": [

@@ -24,6 +24,8 @@ import { ProduitRowComponent } from './crud/produit/produit-row/produit-row.comp
 import { DoublePipe } from './double.pipe';
 import { PersonneListComponent } from './crud/personne/personne-list/personne-list.component';
 import { PersonneRowComponent } from './crud/personne/personne-row/personne-row.component';
+import { FormationListComponent } from './crud/formation/formation-list/formation-list.component';
+import { FormationEditComponent } from './crud/formation/formation-edit/formation-edit.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { PersonneRowComponent } from './crud/personne/personne-row/personne-row.
     DoublePipe,
     PersonneListComponent,
     PersonneRowComponent,
+    FormationListComponent,
+    FormationEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,5 @@
+import { FormationEditComponent } from './crud/formation/formation-edit/formation-edit.component';
+import { FormationListComponent } from './crud/formation/formation-list/formation-list.component';
 import { PersonneListComponent } from './crud/personne/personne-list/personne-list.component';
 import { EditProduitComponent } from './crud/produit/edit-produit/edit-produit.component';
 import { ListProduitComponent } from './crud/produit/list-produit/list-produit.component';
@@ -13,5 +15,8 @@ export const routes: Routes = [
   { path: 'produit/edit', component: EditProduitComponent },
   { path: 'produit/edit/:index', component: EditProduitComponent },
   { path: 'personne', component: PersonneListComponent },
+  { path: 'formation', component: FormationListComponent },
+  { path: 'formation/edit', component: FormationEditComponent },
+  { path: 'formation/edit/:id', component: FormationEditComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
