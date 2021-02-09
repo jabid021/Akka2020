@@ -1,3 +1,4 @@
+import { CanActivateService } from './service/can-activate.service';
 import { FormationEditComponent } from './crud/formation/formation-edit/formation-edit.component';
 import { FormationListComponent } from './crud/formation/formation-list/formation-list.component';
 import { PersonneListComponent } from './crud/personne/personne-list/personne-list.component';
@@ -14,7 +15,11 @@ export const routes: Routes = [
   { path: 'produit', component: ListProduitComponent },
   { path: 'produit/edit', component: EditProduitComponent },
   { path: 'produit/edit/:index', component: EditProduitComponent },
-  { path: 'personne', component: PersonneListComponent },
+  {
+    path: 'personne',
+    component: PersonneListComponent,
+    canActivate: [CanActivateService],
+  },
   { path: 'formation', component: FormationListComponent },
   { path: 'formation/edit', component: FormationEditComponent },
   { path: 'formation/edit/:id', component: FormationEditComponent },

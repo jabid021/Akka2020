@@ -26,6 +26,7 @@ import { PersonneListComponent } from './crud/personne/personne-list/personne-li
 import { PersonneRowComponent } from './crud/personne/personne-row/personne-row.component';
 import { FormationListComponent } from './crud/formation/formation-list/formation-list.component';
 import { FormationEditComponent } from './crud/formation/formation-edit/formation-edit.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { FormationEditComponent } from './crud/formation/formation-edit/formatio
     PersonneRowComponent,
     FormationListComponent,
     FormationEditComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
