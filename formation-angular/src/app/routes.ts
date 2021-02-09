@@ -1,3 +1,4 @@
+import { PersonneListComponent } from './crud/personne/personne-list/personne-list.component';
 import { EditProduitComponent } from './crud/produit/edit-produit/edit-produit.component';
 import { ListProduitComponent } from './crud/produit/list-produit/list-produit.component';
 import { BonjourComponent } from './bonjour/bonjour.component';
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'produit', component: ListProduitComponent },
   { path: 'produit/edit', component: EditProduitComponent },
   { path: 'produit/edit/:index', component: EditProduitComponent },
+  { path: 'personne', component: PersonneListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

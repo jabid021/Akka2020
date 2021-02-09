@@ -1,7 +1,7 @@
 import { ExempleService } from './service/exemple.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { MonComponentComponent } from './mon-component/mon-component.component';
@@ -22,6 +22,7 @@ import { ListProduitComponent } from './crud/produit/list-produit/list-produit.c
 import { EditProduitComponent } from './crud/produit/edit-produit/edit-produit.component';
 import { ProduitRowComponent } from './crud/produit/produit-row/produit-row.component';
 import { DoublePipe } from './double.pipe';
+import { PersonneListComponent } from './crud/personne/personne-list/personne-list.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,14 @@ import { DoublePipe } from './double.pipe';
     EditProduitComponent,
     ProduitRowComponent,
     DoublePipe,
+    PersonneListComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+  ],
   providers: [ExempleService],
   bootstrap: [AppComponent],
 })
