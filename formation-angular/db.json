@@ -1,0 +1,25 @@
+{
+  "formation": [
+    {
+      "id": 1,
+      "nom": "java",
+      "duree": 5
+    },
+    {
+      "id": 2,
+      "nom": "angular",
+      "duree": 5
+    },
+    {
+      "nom": "javascript",
+      "duree": 3,
+      "id": 3
+    }
+  ],
+  "formateur": [
+    {
+      "id": 1,
+      "prenom": "olivier"
+    }
+  ]
+}
