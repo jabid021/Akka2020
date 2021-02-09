@@ -11,7 +11,23 @@ export class PersonneService {
 
   constructor(private http: HttpClient) {}
 
-  public allPersonne(): Observable<Personne> {
-    return this.http.get<Personne>(this.url);
+  public allPersonne(): Observable<Personne[]> {
+    return this.http.get<Personne[]>(this.url);
+  }
+
+  public delete(id: number): Observable<void> {
+    return this.http.delete<void>(this.url + '/' + id);
+  }
+
+  public update(personne: Personne): Observable<Personne> {
+    return this.http.put<Personne>(`${this.url}/${personne.id}`, personne);
+  }
+
+  public insert(personne: Personne): Observable<Personne> {
+    const o = {
+      prenom: personne.prenom,
+      nom: personne.nom,
+    };
+    return this.http.post<Personne>(this.url, o);
   }
 }

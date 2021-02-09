@@ -23,6 +23,7 @@ import { EditProduitComponent } from './crud/produit/edit-produit/edit-produit.c
 import { ProduitRowComponent } from './crud/produit/produit-row/produit-row.component';
 import { DoublePipe } from './double.pipe';
 import { PersonneListComponent } from './crud/personne/personne-list/personne-list.component';
+import { PersonneRowComponent } from './crud/personne/personne-row/personne-row.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { PersonneListComponent } from './crud/personne/personne-list/personne-li
     ProduitRowComponent,
     DoublePipe,
     PersonneListComponent,
+    PersonneRowComponent,
   ],
   imports: [
     BrowserModule,

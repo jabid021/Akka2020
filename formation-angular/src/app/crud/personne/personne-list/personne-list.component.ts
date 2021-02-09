@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonneListComponent implements OnInit {
   personnes: Personne[] = [];
+  showNew: boolean = false;
 
   constructor(private personneService: PersonneService) {}
 
@@ -21,5 +22,24 @@ export class PersonneListComponent implements OnInit {
       this.personnes = data;
       console.log(data);
     });
+  }
+
+  public delete(id: number) {
+    this.personneService.delete(id).subscribe((result) => {
+      this.initList();
+    });
+  }
+
+  public displayNew() {
+    this.showNew = !this.showNew;
+  }
+
+  public insert() {
+    this.displayNew();
+    this.initList();
+  }
+
+  public cancel() {
+    this.displayNew();
   }
 }

@@ -1,8 +1,11 @@
 <h1>liste des personnes</h1>
+<button class="btn btn-link" (click)="displayNew()">ajouter personne</button>
 <table class="table">
-  <tr *ngFor="let o of personnes">
-    <td>{{ o.id }}</td>
-    <td>{{ o.prenom }}</td>
-    <td>{{ o.nom }}</td>
-  </tr>
+  <tr *ngIf="showNew" personne-row (insert)="insert()" (cancel)="cancel()"></tr>
+  <tr
+    personne-row
+    [personne]="p"
+    *ngFor="let p of personnes"
+    (delete)="delete($event)"
+  ></tr>
 </table>
