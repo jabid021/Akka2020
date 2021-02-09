@@ -1,4 +1,5 @@
 <div>
+  <div *ngIf="erreur">probleme</div>
   <div>login:<input [(ngModel)]="login.username" /></div>
   <div>password:<input type="password" [(ngModel)]="login.password" /></div>
   <div><button (click)="send()">envoyer</button></div>

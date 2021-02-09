@@ -1,5 +1,5 @@
 <div>
-  menu
+  menu {{ user }}
   <a [routerLink]="['/home']" routerLinkActive="active">home</a>
   <a [routerLink]="['/produit']" routerLinkActive="active"
     >liste des produits</a
@@ -10,6 +10,8 @@
   <a [routerLink]="['/formation']" routerLinkActive="active"
     >liste des formations</a
   >
+  <a [routerLink]="['/login']" routerLinkActive="active">login</a>
+  <button (click)="logout()">deconnexion</button>
 </div>
 <router-outlet></router-outlet>
 <div>footer (component)</div>

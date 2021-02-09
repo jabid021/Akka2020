@@ -8,6 +8,9 @@ export class CanActivateService implements CanActivate {
   constructor() {}
 
   canActivate(): boolean {
+    if (sessionStorage.getItem('tokenId')) {
+      return true;
+    }
     return false;
   }
 }

@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { CanActivateService } from './service/can-activate.service';
 import { FormationEditComponent } from './crud/formation/formation-edit/formation-edit.component';
 import { FormationListComponent } from './crud/formation/formation-list/formation-list.component';
@@ -23,5 +24,6 @@ export const routes: Routes = [
   { path: 'formation', component: FormationListComponent },
   { path: 'formation/edit', component: FormationEditComponent },
   { path: 'formation/edit/:id', component: FormationEditComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
