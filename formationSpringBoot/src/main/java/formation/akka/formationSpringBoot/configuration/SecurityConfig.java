@@ -32,7 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.authorizeRequests().antMatchers(HttpMethod.OPTIONS).anonymous()
 			.and()
-			.csrf().disable().authorizeRequests().antMatchers("/api/**").authenticated().and().httpBasic();
+			.csrf().disable().authorizeRequests().antMatchers("/api/**").authenticated()
+			.and().httpBasic();
 			
 //		http.authorizeRequests()
 //				.antMatchers("/", "/images/**", "/public", "/public/**").permitAll()

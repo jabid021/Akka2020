@@ -24,6 +24,11 @@
       "nom": "uuu",
       "duree": "33",
       "id": 5
+    },
+    {
+      "nom": "aaa",
+      "duree": "22",
+      "id": 6
     }
   ],
   "formateur": [

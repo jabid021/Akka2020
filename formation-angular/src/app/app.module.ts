@@ -27,6 +27,8 @@ import { PersonneRowComponent } from './crud/personne/personne-row/personne-row.
 import { FormationListComponent } from './crud/formation/formation-list/formation-list.component';
 import { FormationEditComponent } from './crud/formation/formation-edit/formation-edit.component';
 import { LoginComponent } from './login/login.component';
+import { FormulairePiloteParLeTemplateComponent } from './formulaire/formulaire-pilote-par-le-template/formulaire-pilote-par-le-template.component';
+import { FormulairePiloteParLeCodeComponent } from './formulaire/formulaire-pilote-par-le-code/formulaire-pilote-par-le-code.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { LoginComponent } from './login/login.component';
     FormationListComponent,
     FormationEditComponent,
     LoginComponent,
+    FormulairePiloteParLeTemplateComponent,
+    FormulairePiloteParLeCodeComponent,
   ],
   imports: [
     BrowserModule,

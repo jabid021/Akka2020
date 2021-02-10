@@ -1,3 +1,4 @@
+import { FormulairePiloteParLeTemplateComponent } from './formulaire/formulaire-pilote-par-le-template/formulaire-pilote-par-le-template.component';
 import { LoginComponent } from './login/login.component';
 import { CanActivateService } from './service/can-activate.service';
 import { FormationEditComponent } from './crud/formation/formation-edit/formation-edit.component';
@@ -25,5 +26,6 @@ export const routes: Routes = [
   { path: 'formation/edit', component: FormationEditComponent },
   { path: 'formation/edit/:id', component: FormationEditComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'form', component: FormulairePiloteParLeTemplateComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

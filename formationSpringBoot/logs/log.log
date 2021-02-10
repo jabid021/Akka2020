@@ -198,3 +198,8 @@
 2021-02-09 17:20:37.631  INFO 31489 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/monsite]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-02-09 17:20:37.631  INFO 31489 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2021-02-09 17:20:37.633  INFO 31489 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-02-09 17:59:15.652  INFO 31489 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-02-09 17:59:15.699  INFO 31489 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-09 17:59:15.703  INFO 31489 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-02-09 17:59:15.711  INFO 31489 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-09 17:59:15.729  INFO 31489 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
