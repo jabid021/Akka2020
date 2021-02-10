@@ -29,6 +29,7 @@ import { FormationEditComponent } from './crud/formation/formation-edit/formatio
 import { LoginComponent } from './login/login.component';
 import { FormulairePiloteParLeTemplateComponent } from './formulaire/formulaire-pilote-par-le-template/formulaire-pilote-par-le-template.component';
 import { FormulairePiloteParLeCodeComponent } from './formulaire/formulaire-pilote-par-le-code/formulaire-pilote-par-le-code.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { FormulairePiloteParLeCodeComponent } from './formulaire/formulaire-pilo
     LoginComponent,
     FormulairePiloteParLeTemplateComponent,
     FormulairePiloteParLeCodeComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,

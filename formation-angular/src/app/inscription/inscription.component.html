@@ -1,0 +1,39 @@
+<h1>inscription</h1>
+<form (ngSubmit)="send()" [formGroup]="form">
+  <div class="form-group">
+    <label for="username">login:</label>
+    <input name="username" [formControl]="usernameCtrl" class="form-control" />
+    <div *ngIf="usernameIsInvalid()" class="alert alert-danger">
+      login non defini ou deja utilise
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">mot de passe:</label>
+    <input
+      type="password"
+      name="password"
+      [formControl]="passwordCtrl"
+      class="form-control"
+    />
+    <div *ngIf="passwordIsInvalid()" class="alert alert-danger">
+      mot de passe obligatoire avec au moins 3 caracteres et lettre et chiffre
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirm">corfirmer mot de passe:</label>
+    <input
+      type="password"
+      name="confirm"
+      [formControl]="confirmCtrl"
+      class="form-control"
+    />
+    <div *ngIf="confirmNotEquals()" class="alert alert-danger">
+      les mots de passe ne sont pas identiques
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+      envoyer
+    </button>
+  </div>
+</form>

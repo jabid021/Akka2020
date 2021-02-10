@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,5 +42,10 @@ public class InscriptionController {
 		userRepository.save(user);
 		userRoleRepository.save(new UserRole(user, Role.ROLE_USER));
 		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/{login}")
+	public boolean loginDispo(@PathVariable("login") String login) {
+		return userRepository.findById(login).isPresent();
 	}
 }
