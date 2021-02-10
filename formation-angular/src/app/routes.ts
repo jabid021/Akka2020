@@ -11,6 +11,7 @@ import { Page1PublicComponent } from './page1-public/page1-public.component';
 import { TestNgForComponent } from './test-ng-for/test-ng-for.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { FormulairePiloteParLeCodeComponent } from './formulaire/formulaire-pilote-par-le-code/formulaire-pilote-par-le-code.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,6 @@ export const routes: Routes = [
   { path: 'formation/edit', component: FormationEditComponent },
   { path: 'formation/edit/:id', component: FormationEditComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'form', component: FormulairePiloteParLeTemplateComponent },
+  { path: 'form', component: FormulairePiloteParLeCodeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

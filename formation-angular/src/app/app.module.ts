@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MonComponentComponent } from './mon-component/mon-component.component';
 import { TitreComponent } from './titre/titre.component';
 import { BoldElementComponent } from './bold-element/bold-element.component';
@@ -61,6 +61,7 @@ import { FormulairePiloteParLeCodeComponent } from './formulaire/formulaire-pilo
     FormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [ExempleService],
   bootstrap: [AppComponent],
