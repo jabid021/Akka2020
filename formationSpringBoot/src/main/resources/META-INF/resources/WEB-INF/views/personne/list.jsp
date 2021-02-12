@@ -16,6 +16,7 @@
 </head>
 <body>
 	<div class="container">
+		<jsp:include page="../logout.jsp"></jsp:include>
 		<div>
 			<a href="?lang=fr" class="btn btn-link"><spring:message
 					code="francais"></spring:message></a> <a href="?lang=en"

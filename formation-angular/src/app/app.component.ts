@@ -9,7 +9,7 @@ import { Produit } from 'src/model/produit';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  user: string = sessionStorage.getItem('login');
+  _user: string = '';
 
   constructor(private router: Router) {}
 
@@ -18,5 +18,9 @@ export class AppComponent {
     sessionStorage.removeItem('login');
     this.user = '';
     this.router.navigate(['/home']);
+  }
+
+  public get user(){
+    return sessionStorage.getItem('login');
   }
 }

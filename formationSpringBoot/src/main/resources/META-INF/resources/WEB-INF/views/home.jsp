@@ -13,6 +13,7 @@
 </head>
 <body>
 	<div class="container">
+		<jsp:include page="./logout.jsp"></jsp:include>
 		<h1>bienvenue</h1>
 		<div>
 			<a href="public/page1" class="btn btn-link">page1</a> <a
