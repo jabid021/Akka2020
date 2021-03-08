@@ -17,7 +17,7 @@
 		<h1>bienvenue</h1>
 		<div>
 			<a href="public/page1" class="btn btn-link">page1</a> <a
-				href="personne" class="btn btn-link">liste des personnes</a>
+				href="secure/personne" class="btn btn-link">liste des personnes</a>
 		</div>
 	</div>
 </body>

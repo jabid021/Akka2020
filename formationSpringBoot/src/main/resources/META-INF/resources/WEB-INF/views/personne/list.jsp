@@ -36,9 +36,9 @@
 					<td>${p.prenom}</td>
 					<td>${p.nom}</td>
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="./personne/edit?id=${p.id}"
+						<td><a href="./secure/personne/edit?id=${p.id}"
 							class="btn btn-outline-primary"><spring:message code="edit"></spring:message></a></td>
-						<td><a href="./personne/delete?id=${p.id}"
+						<td><a href="./secure/personne/delete?id=${p.id}"
 							class="btn btn-outline-danger"><spring:message code="delete"></spring:message></a></td>
 					</sec:authorize>
 				</tr>

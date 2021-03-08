@@ -20,7 +20,11 @@ export class AppComponent {
     this.router.navigate(['/home']);
   }
 
-  public get user(){
+  public get user() {
     return sessionStorage.getItem('login');
+  }
+
+  public set user(value: string) {
+    this._user = value;
   }
 }

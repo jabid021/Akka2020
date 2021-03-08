@@ -27,82 +27,76 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private CustomUserDetailsService userDetailsService;
 
 	@Configuration
-	@Order(1)
+	@Order(2)
 	public class SiteJavaSecurityConfig extends WebSecurityConfigurerAdapter {
+
+		@Override
+		public void configure(WebSecurity web) throws Exception {
+			web.ignoring().antMatchers("/images/**", "/public", "/public/**");
+		}
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 		//@// @formatter:off		
 		//activation des restcontroller
-		http
-				.authorizeRequests().antMatchers("/", "/images/**", "/public", "/public/**").permitAll()
-				.antMatchers("/admin/**").hasAnyRole("ADMIN")
-				.antMatchers("/personne","/personne/**").authenticated()
+		http		
+			.antMatcher("/**")
+				.authorizeRequests()
+					.antMatchers("/login","/logout").permitAll()
+					.antMatchers("/secure/admin","/secure/admin/**").hasAnyRole("ADMIN")
+					.antMatchers("/secure/personne","/secure/personne/**").authenticated()	
 			.and()
 			.formLogin()
 				.loginPage("/login")
 				.defaultSuccessUrl("/secure/home")
 				.failureUrl("/login?error")
-				.permitAll()
 			.and()
 			.logout()
 				.logoutUrl("/logout")
-				.invalidateHttpSession(true)
-				.deleteCookies("JSESSIONID")
-				.logoutSuccessUrl("/public")
-				.permitAll();
+				.logoutSuccessUrl("/public");
 		// @formatter:on
 		}
 
 		@Override
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		// @formatter:off
-//		auth.inMemoryAuthentication()
-//			.withUser("olivier").password("{noop}olivier").roles("ADMIN","USER")
-//			.and()
-//			.withUser("user").password("{noop}user").roles("USER");
-//		// @formatter:on
-
-		// @formatter:off
-//		auth.jdbcAuthentication()
-//				.dataSource(dataSource)
-//				.usersByUsernameQuery("select username,password,enable from ????? where username=?")
-//				.authoritiesByUsernameQuery("select username,role from ???? whee username=?");
-		// @formatter:on
-
 			auth.userDetailsService(userDetailsService);
 		}
+
 	}
 
 	@Configuration
-	@Order(2)
+	@Order(1)
 	public class RestControllerSecurityConfig extends WebSecurityConfigurerAdapter {
-		@Autowired
-		private CustomUserDetailsService userDetailsService;
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			//@// @formatter:off		
 				//activation des restcontroller
-				http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				http
+					.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 					.and()
-					.authorizeRequests().antMatchers(HttpMethod.OPTIONS).anonymous()
+					.csrf()
+						.ignoringAntMatchers("/api/**")	
 					.and()
-					.csrf().disable().authorizeRequests()
-						.antMatchers("/api/**").authenticated()
-						.and().httpBasic();
+					.antMatcher("/api/**")
+						.authorizeRequests()
+							.antMatchers(HttpMethod.OPTIONS).anonymous()
+							.antMatchers("/api/**").authenticated()
+					.and()
+					.httpBasic();
 				// @formatter:on
-		}
-		
-		@Override
-		public void configure(WebSecurity web) throws Exception {
-			web.ignoring().antMatchers("/api/inscription","/api/inscription/**");
 		}
 
 		@Override
-		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-			auth.userDetailsService(userDetailsService);
+		public void configure(WebSecurity web) throws Exception {
+			web.ignoring().antMatchers("/api/inscription", "/api/inscription/**");
 		}
+
+	}
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService);
 	}
 
 	@Bean

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/adminv2")
+@RequestMapping("/secure/adminv2")
 @PreAuthorize("hasRole('ADMIN')")
 public class AdminControllerAvecAnnotation {
 

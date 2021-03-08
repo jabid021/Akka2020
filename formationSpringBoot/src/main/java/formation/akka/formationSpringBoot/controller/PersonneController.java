@@ -17,7 +17,7 @@ import formation.akka.formationSpringBoot.entity.Personne;
 import formation.akka.formationSpringBoot.service.PersonneService;
 
 @Controller
-@RequestMapping("/personne")
+@RequestMapping("/secure/personne")
 @PreAuthorize("isAuthenticated()")
 public class PersonneController {
 
